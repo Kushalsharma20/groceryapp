@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import "package:flutter/material.dart";
 
 class HomeScreen extends StatelessWidget {
@@ -73,10 +75,35 @@ class HomeScreen extends StatelessWidget {
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10)),
                   child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
+                          flex: 2,
                           child: Image.network(
-                              "https://www.veggycation.com.au/siteassets/veggycationvegetable/basil.jpg"))
+                              "https://www.veggycation.com.au/siteassets/veggycationvegetable/basil.jpg")),
+                      Expanded(
+                          child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 10, vertical: 5),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "Fresh Basil",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            Text(
+                              "1000/=/100g",
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ))
                     ],
                   ),
                 ),

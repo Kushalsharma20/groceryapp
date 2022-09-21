@@ -31,6 +31,7 @@ class SingalProduct extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 GestureDetector(
+                  onTap: onTap(),
                   child: Container(
                     height: 150,
                     padding: EdgeInsets.all(5),

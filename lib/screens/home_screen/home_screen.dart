@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery_app/config/colors.dart';
 import 'package:grocery_app/screens/home_screen/singal_product.dart';
 import 'package:grocery_app/screens/home_screen/drawer_side.dart';
+import 'package:grocery_app/screens/product_overview/product_overview.dart';
 
 class HomeScreen extends StatelessWidget {
   Widget _buildHerbsProduct(context) {
@@ -26,10 +27,14 @@ class HomeScreen extends StatelessWidget {
           child: Row(
             children: [
               SingalProduct(
-                  productImage:
-                      ('https://www.veggycation.com.au/siteassets/veggycationvegetable/basil.jpg'),
-                  productName: ' Fresh Basil',
-                  onTap: () {}),
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => ProductOverview()));
+                },
+                productImage:
+                    ('https://www.veggycation.com.au/siteassets/veggycationvegetable/basil.jpg'),
+                productName: ' Fresh Basil',
+              ),
               SingalProduct(
                   productImage:
                       ('https://b.rgbimg.com/cache1oVrZF/users/g/gr/greyman/600/mC2DvC2.jpg'),
@@ -69,11 +74,20 @@ class HomeScreen extends StatelessWidget {
           child: Row(
             children: [
               SingalProduct(
-                  productImage: (''), productName: 'Herbs', onTap: () {}),
+                  productImage:
+                      (''),
+                  productName: 'Strawberries',
+                  onTap: () {}),
               SingalProduct(
-                  productImage: (''), productName: 'Herbs', onTap: () {}),
+                  productImage:
+                      (''),
+                  productName: 'Kiwi',
+                  onTap: () {}),
               SingalProduct(
-                  productImage: (''), productName: 'Herbs', onTap: () {}),
+                  productImage:
+                      (''),
+                  productName: 'Grapes',
+                  onTap: () {}),
             ],
           ),
         ),
@@ -90,7 +104,7 @@ class HomeScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: const [
-              Text('Herbs Seasonings'),
+              Text('Root plants'),
               Text(
                 'view all',
                 style: TextStyle(color: Colors.grey),
@@ -103,11 +117,20 @@ class HomeScreen extends StatelessWidget {
           child: Row(
             children: [
               SingalProduct(
-                  productImage: (''), productName: 'Herbs', onTap: () {}),
+                  productImage:
+                      (''),
+                  productName: 'Cassava',
+                  onTap: () {}),
               SingalProduct(
-                  productImage: (''), productName: 'Herbs', onTap: () {}),
+                  productImage:
+                      (''),
+                  productName: 'Yams',
+                  onTap: () {}),
               SingalProduct(
-                  productImage: (''), productName: 'Herbs', onTap: () {}),
+                  productImage:
+                      (''),
+                  productName: 'Sweet Potatoes',
+                  onTap: () {}),
             ],
           ),
         ),

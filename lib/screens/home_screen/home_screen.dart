@@ -26,11 +26,20 @@ class HomeScreen extends StatelessWidget {
           child: Row(
             children: [
               SingalProduct(
-                  productImage: (''), productName: ' 1', onTap: () {}),
+                  productImage:
+                      ('https://www.veggycation.com.au/siteassets/veggycationvegetable/basil.jpg'),
+                  productName: ' Fresh Basil',
+                  onTap: () {}),
               SingalProduct(
-                  productImage: (''), productName: 'Herbs2', onTap: () {}),
+                  productImage:
+                      ('https://b.rgbimg.com/cache1oVrZF/users/g/gr/greyman/600/mC2DvC2.jpg'),
+                  productName: 'Fresh tomatos',
+                  onTap: () {}),
               SingalProduct(
-                  productImage: (''), productName: 'Herbs3', onTap: () {}),
+                  productImage:
+                      ('https://thumbs.dreamstime.com/b/cloves-15938229.jpg'),
+                  productName: 'Cloves',
+                  onTap: () {}),
             ],
           ),
         ),

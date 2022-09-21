@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/config/colors.dart';
-import 'package:grocery_app/screens/home_screen/singal_product.dart';
 import 'package:grocery_app/screens/home_screen/drawer_side.dart';
+import 'package:grocery_app/screens/home_screen/singal_product.dart';
 import 'package:grocery_app/screens/product_overview/product_overview.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -74,20 +74,13 @@ class HomeScreen extends StatelessWidget {
           child: Row(
             children: [
               SingalProduct(
-                  productImage:
-                      (''),
+                  productImage: (''),
                   productName: 'Strawberries',
                   onTap: () {}),
               SingalProduct(
-                  productImage:
-                      (''),
-                  productName: 'Kiwi',
-                  onTap: () {}),
+                  productImage: (''), productName: 'Kiwi', onTap: () {}),
               SingalProduct(
-                  productImage:
-                      (''),
-                  productName: 'Grapes',
-                  onTap: () {}),
+                  productImage: (''), productName: 'Grapes', onTap: () {}),
             ],
           ),
         ),
@@ -117,18 +110,11 @@ class HomeScreen extends StatelessWidget {
           child: Row(
             children: [
               SingalProduct(
-                  productImage:
-                      (''),
-                  productName: 'Cassava',
-                  onTap: () {}),
+                  productImage: (''), productName: 'Cassava', onTap: () {}),
               SingalProduct(
-                  productImage:
-                      (''),
-                  productName: 'Yams',
-                  onTap: () {}),
+                  productImage: (''), productName: 'Yams', onTap: () {}),
               SingalProduct(
-                  productImage:
-                      (''),
+                  productImage: (''),
                   productName: 'Sweet Potatoes',
                   onTap: () {}),
             ],

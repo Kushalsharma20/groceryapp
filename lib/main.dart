@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/auth/sign_in.dart';
 import 'package:grocery_app/screens/home_screen/home_screen.dart';
+import 'package:grocery_app/screens/product_overview/product_overview.dart';
 
 void main() {
   runApp(const MyApp());

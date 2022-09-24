@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/config/colors.dart';
+import 'package:grocery_app/screens/product_overview/product_overview.dart';
 
 class SingalProduct extends StatelessWidget {
   final String productImage;
@@ -31,7 +32,10 @@ class SingalProduct extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 GestureDetector(
-                  onTap: onTap(),
+                  onTap: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => ProductOverview()));
+                  },
                   child: Container(
                     height: 150,
                     padding: EdgeInsets.all(5),

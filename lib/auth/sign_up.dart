@@ -14,7 +14,7 @@ class SignUpState extends State<SignUP> {
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Groceries app"),
+        title: const Text("Vegi Groceries"),
         backgroundColor: Colors.orange,
       ),
       body: Container(
@@ -22,7 +22,7 @@ class SignUpState extends State<SignUP> {
         padding: const EdgeInsets.all(32),
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/authimages/sign.jpeg"),
+            image: AssetImage("assets/sign.jpeg"),
             fit: BoxFit.cover,
           ),
         ),

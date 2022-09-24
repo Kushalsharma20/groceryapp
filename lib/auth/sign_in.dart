@@ -14,7 +14,7 @@ class SignInState extends State<SignIn> {
     double h = MediaQuery.of(context).size.height;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Groceries app"),
+        title: const Text("Vegi Groceries"),
         backgroundColor: Colors.orange,
       ),
       body: Container(

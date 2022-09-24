@@ -84,8 +84,8 @@ class _ProductOverview extends State<ProductOverview> {
                     subtitle: Text("UGX 1000"),
                   ),
                   Container(
-                      height: 250,
-                      padding: EdgeInsets.all(40),
+                      height: 150,
+                      padding: EdgeInsets.all(0),
                       child: Image.network(
                           "https://www.veggycation.com.au/siteassets/veggycationvegetable/basil.jpg")),
                   Container(

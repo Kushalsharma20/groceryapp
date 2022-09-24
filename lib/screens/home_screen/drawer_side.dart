@@ -4,6 +4,7 @@ import 'package:grocery_app/config/colors.dart';
 class DrawerSide extends StatelessWidget {
   Widget listTile({IconData? icon, String? title}) {
     return ListTile(
+      onTap: () {},
       leading: Icon(
         icon,
         size: 32,
@@ -17,10 +18,10 @@ class DrawerSide extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return Drawer(
         backgroundColor: primarycolor,
-        drawer: Drawer(
-            child: Container(
+        child: Container(
+          width: 100,
           color: primarycolor,
           child: ListView(
             children: [
@@ -105,6 +106,6 @@ class DrawerSide extends StatelessWidget {
               )
             ],
           ),
-        )));
+        ));
   }
 }

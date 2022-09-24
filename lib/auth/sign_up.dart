@@ -22,7 +22,7 @@ class SignUpState extends State<SignUP> {
         padding: const EdgeInsets.all(32),
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/sign.jpeg"),
+            image: AssetImage("assets/authimages/sign.jpeg"),
             fit: BoxFit.cover,
           ),
         ),
@@ -72,6 +72,7 @@ class SignUpState extends State<SignUP> {
               decoration: InputDecoration(
                 hintText: 'Email',
                 labelText: 'Email',
+                prefixIcon: Icon(Icons.email, color: Colors.black),
                 border: OutlineInputBorder(),
               ),
             ),
@@ -101,8 +102,8 @@ class SignUpState extends State<SignUP> {
               height: 15,
             ),
           ],
-        ),
       ),
-    );
+    ) 
+    ,);
   }
 }

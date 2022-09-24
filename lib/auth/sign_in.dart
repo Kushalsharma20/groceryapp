@@ -83,18 +83,32 @@ class SignInState extends State<SignIn> {
                 height: 9,
               ),
               Container(
-                child: TextButton(
-                  style: TextButton.styleFrom(
-                    backgroundColor: Colors.transparent,
-                    foregroundColor: Colors.black,
-                    padding: EdgeInsets.symmetric(vertical: 22),
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      'Don\'t have an account ?',
+                      style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
                     ),
-                    
-                  ),
-                  onPressed: () { },
-                  child: Text("Don't have an account?"),),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        foregroundColor: Colors.orange,
+                        padding: EdgeInsets.symmetric(vertical: 22),
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(8)),
+                        ),
+                        
+                      ),
+                      onPressed: () { },
+                      child: Text("Create"),),
+                  ],
+                      
+                ),
+                
                   
               ),
               SizedBox(

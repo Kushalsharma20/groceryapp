@@ -1,43 +1,81 @@
 import 'package:flutter/material.dart';
-import 'package:sign_button/sign_button.dart';
 
-class SignIn extends StatelessWidget {
+class SignIn extends StatefulWidget {
   const SignIn({super.key});
 
   @override
+  State<SignIn> createState() => SignInState();
+}
+
+class SignInState extends State<SignIn> {
+  @override
   Widget build(BuildContext context) {
+    double w = MediaQuery.of(context).size.width;
+    double h = MediaQuery.of(context).size.height;
     return Scaffold(
-        body: Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-            fit: BoxFit.cover, image: AssetImage("assets/background.png")),
+      appBar: AppBar(
+        title: const Text("Groceries app"),
+        backgroundColor: Colors.orange,
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Container(
-              height: 400,
-              width: double.infinity,
-              child: Column(
-                children: [
-                  Text("Sign In to continue"),
-                  Text(
-                    "Vegi",
-                    style:
-                        TextStyle(fontSize: 50, color: Colors.white, shadows: [
-                      BoxShadow(
-                        blurRadius: 5,
-                        color: Colors.green.shade900,
-                        offset: Offset(3, 3),
-                      )
-                    ]),
-                  ),
-                  SignInButton(buttonType: ButtonType.apple, onPressed: () {}),
-                  SignInButton(buttonType: ButtonType.google, onPressed: () {}),
-                ],
-              )),
-        ],
+      body: Container(
+        alignment: Alignment.center,
+        padding: const EdgeInsets.all(32),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/authimages/sign.jpeg"),
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: ListView(
+          children: const [
+            Text(
+              'Welcome to Vegi groceries',
+              style: TextStyle(
+                fontSize: 28,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(
+              height: 4,
+            ),
+            Text(
+              'Log into Account',
+              style: TextStyle(
+                fontSize: 45,
+                color: Colors.orange,
+              ),
+            ),
+            SizedBox(
+              height: 7,
+            ),
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Email',
+                labelText: 'Email',
+                prefixIcon: Icon(
+                  Icons.email,
+                  color: Colors.black,
+                ),
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(
+              height: 9,
+            ),
+            TextField(
+              decoration: InputDecoration(
+                hintText: 'Password',
+                labelText: 'Password',
+                prefixIcon: Icon(Icons.lock, color: Colors.black),
+                border: OutlineInputBorder(),
+              ),
+            ),
+            SizedBox(
+              height: 9,
+            ),
+          ],
+        ),
       ),
-    ));
+    );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/auth/sign_in.dart';
+import 'package:grocery_app/auth/sign_up.dart';
 import 'package:grocery_app/screens/home_screen/home_screen.dart';
 import 'package:grocery_app/screens/product_overview/product_overview.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(),
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: SignUP(),
     );
   }
 }

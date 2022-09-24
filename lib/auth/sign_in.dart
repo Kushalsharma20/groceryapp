@@ -89,7 +89,6 @@ class SignInState extends State<SignIn> {
                       'Don\'t have an account ?',
                       style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
                     ),
-<<<<<<< HEAD
                     SizedBox(
                       width: 10,
                     ),

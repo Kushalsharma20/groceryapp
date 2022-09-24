@@ -15,7 +15,7 @@ class SignInState extends State<SignIn> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Vegi Groceries"),
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.green,
       ),
       body: Container(
         alignment: Alignment.center,
@@ -26,54 +26,82 @@ class SignInState extends State<SignIn> {
             fit: BoxFit.cover,
           ),
         ),
-        child: ListView(
-          children: const [
-            Text(
-              'Welcome to Vegi groceries',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            SizedBox(
-              height: 4,
-            ),
-            Text(
-              'Log into Account',
-              style: TextStyle(
-                fontSize: 45,
-                color: Colors.orange,
-              ),
-            ),
-            SizedBox(
-              height: 7,
-            ),
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Email',
-                labelText: 'Email',
-                prefixIcon: Icon(
-                  Icons.email,
-                  color: Colors.black,
+        child: Center(
+          child: ListView(
+            children:  [
+              Text(
+                'Welcome to Vegi groceries',
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
                 ),
-                border: OutlineInputBorder(),
               ),
-            ),
-            SizedBox(
-              height: 9,
-            ),
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Password',
-                labelText: 'Password',
-                prefixIcon: Icon(Icons.lock, color: Colors.black),
-                border: OutlineInputBorder(),
+        
+              SizedBox(
+                height: 100,
               ),
-            ),
-            SizedBox(
-              height: 9,
-            ),
-          ],
+             
+              TextField(
+                decoration: InputDecoration(
+                  hintText: 'Email',
+                  labelText: 'Email',
+                  prefixIcon: Icon(
+                    Icons.email,
+                    color: Colors.black,
+                  ),
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              TextField(
+                decoration: InputDecoration(
+                  hintText: 'Password',
+                  labelText: 'Password',
+                  prefixIcon: Icon(Icons.lock, color: Colors.black),
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              SizedBox(height: 20,),
+              Container(
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.green,
+                    foregroundColor: Colors.white,
+                    padding: EdgeInsets.symmetric(vertical: 22),
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                    ),
+                    
+                  ),
+                  onPressed: () { },
+                  child: Text('Log In'),),
+                  
+              ),
+              SizedBox(
+                height: 9,
+              ),
+              Container(
+                child: TextButton(
+                  style: TextButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                    foregroundColor: Colors.black,
+                    padding: EdgeInsets.symmetric(vertical: 22),
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                    ),
+                    
+                  ),
+                  onPressed: () { },
+                  child: Text("Don't have an account?"),),
+                  
+              ),
+              SizedBox(
+                height: 9,
+              ),
+            ],
+          ),
         ),
       ),
     );

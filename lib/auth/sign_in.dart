@@ -28,7 +28,7 @@ class SignInState extends State<SignIn> {
         ),
         child: Center(
           child: ListView(
-            children: [
+            children:  [
               Text(
                 'Welcome to Vegi groceries',
                 style: TextStyle(
@@ -36,9 +36,11 @@ class SignInState extends State<SignIn> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
+        
               SizedBox(
                 height: 100,
               ),
+             
               TextField(
                 decoration: InputDecoration(
                   hintText: 'Email',
@@ -61,9 +63,7 @@ class SignInState extends State<SignIn> {
                   border: OutlineInputBorder(),
                 ),
               ),
-              SizedBox(
-                height: 20,
-              ),
+              SizedBox(height: 20,),
               Container(
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -73,10 +73,11 @@ class SignInState extends State<SignIn> {
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(8)),
                     ),
+                    
                   ),
-                  onPressed: () {},
-                  child: Text('Log In'),
-                ),
+                  onPressed: () { },
+                  child: Text('Log In'),),
+                  
               ),
               SizedBox(
                 height: 9,
@@ -95,7 +96,7 @@ class SignInState extends State<SignIn> {
                     TextButton(
                       style: TextButton.styleFrom(
                         backgroundColor: Colors.transparent,
-                        foregroundColor: Colors.orange,
+                        foregroundColor: Colors.black,
                         padding: EdgeInsets.symmetric(vertical: 22),
                         shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(8)),
@@ -109,12 +110,6 @@ class SignInState extends State<SignIn> {
                 ),
                 
                   
-=======
-                  ),
-                  onPressed: () {},
-                  child: Text("Don't have an account?"),
-                ),
->>>>>>> a074c5656561e71ab5b5a29980a1c4ef1cf2511c
               ),
               SizedBox(
                 height: 9,

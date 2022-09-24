@@ -15,19 +15,19 @@ class SignUpState extends State<SignUP> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Vegi Groceries"),
-        backgroundColor: Colors.orange,
+        backgroundColor: Colors.green,
       ),
       body: Container(
         alignment: Alignment.center,
         padding: const EdgeInsets.all(32),
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/sign.jpeg"),
+            image: AssetImage("assets/authimages/sign.jpeg"),
             fit: BoxFit.cover,
           ),
         ),
         child: ListView(
-          children: const [
+          children: [
             Text(
               'Welcome to Vegi groceries',
               style: TextStyle(
@@ -36,17 +36,7 @@ class SignUpState extends State<SignUP> {
               ),
             ),
             SizedBox(
-              height: 4,
-            ),
-            Text(
-              'Create Account',
-              style: TextStyle(
-                fontSize: 45,
-                color: Colors.orange,
-              ),
-            ),
-            SizedBox(
-              height: 7,
+              height: 40,
             ),
             TextField(
               decoration: InputDecoration(
@@ -72,6 +62,7 @@ class SignUpState extends State<SignUP> {
               decoration: InputDecoration(
                 hintText: 'Email',
                 labelText: 'Email',
+                prefixIcon: Icon(Icons.email, color: Colors.black),
                 border: OutlineInputBorder(),
               ),
             ),
@@ -99,6 +90,22 @@ class SignUpState extends State<SignUP> {
             ),
             SizedBox(
               height: 15,
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.green,
+                foregroundColor: Colors.white,
+              ),
+              child: Text('Create Account'),
+            ),
+            TextButton(
+              onPressed: () {},
+              style: TextButton.styleFrom(
+                backgroundColor: Colors.transparent,
+                foregroundColor: Colors.black, // foreground
+              ),
+              child: Text('Have an account?, Login'),
             ),
           ],
         ),

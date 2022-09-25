@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_app/auth/sign_in.dart';
 import 'package:grocery_app/config/colors.dart';
 
 class DrawerSide extends StatelessWidget {
@@ -47,7 +48,12 @@ class DrawerSide extends StatelessWidget {
                         Container(
                           height: 30,
                           child: OutlinedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => SignIn()),
+                              );
+                            },
                             child: Text(
                               "Login",
                             ),

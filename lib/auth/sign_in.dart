@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_app/auth/sign_up.dart';
+
+import '../screens/home_screen/home_screen.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -20,15 +23,19 @@ class SignInState extends State<SignIn> {
       body: Container(
         alignment: Alignment.center,
         padding: const EdgeInsets.all(32),
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/authimages/sign.jpeg"),
+            image: AssetImage("assets/authimages/auth4.jpg"),
+            colorFilter: ColorFilter.mode(
+              Colors.purpleAccent.shade100.withOpacity(0.5),
+              BlendMode.modulate,
+            ),
             fit: BoxFit.cover,
           ),
         ),
         child: Center(
           child: ListView(
-            children:  [
+            children: [
               Text(
                 'Welcome to Vegi groceries',
                 style: TextStyle(
@@ -36,11 +43,9 @@ class SignInState extends State<SignIn> {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-        
               SizedBox(
                 height: 100,
               ),
-             
               TextField(
                 decoration: InputDecoration(
                   hintText: 'Email',
@@ -49,7 +54,9 @@ class SignInState extends State<SignIn> {
                     Icons.email,
                     color: Colors.black,
                   ),
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                  ),
                 ),
               ),
               SizedBox(
@@ -60,10 +67,15 @@ class SignInState extends State<SignIn> {
                   hintText: 'Password',
                   labelText: 'Password',
                   prefixIcon: Icon(Icons.lock, color: Colors.black),
-                  border: OutlineInputBorder(),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30.0),
+                    borderSide: BorderSide(),
+                  ),
                 ),
               ),
-              SizedBox(height: 20,),
+              SizedBox(
+                height: 50,
+              ),
               Container(
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
@@ -71,13 +83,17 @@ class SignInState extends State<SignIn> {
                     foregroundColor: Colors.white,
                     padding: EdgeInsets.symmetric(vertical: 22),
                     shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(8)),
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
                     ),
-                    
                   ),
-                  onPressed: () { },
-                  child: Text('Log In'),),
-                  
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomeScreen()),
+                    );
+                  },
+                  child: Text('Log In'),
+                ),
               ),
               SizedBox(
                 height: 9,
@@ -88,7 +104,8 @@ class SignInState extends State<SignIn> {
                   children: <Widget>[
                     Text(
                       'Don\'t have an account ?',
-                      style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                      style:
+                          TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
                     ),
                     SizedBox(
                       width: 10,
@@ -101,15 +118,17 @@ class SignInState extends State<SignIn> {
                         shape: const RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(8)),
                         ),
-                        
                       ),
-                      onPressed: () { },
-                      child: Text("Create"),),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SignUP()),
+                        );
+                      },
+                      child: Text("Create"),
+                    ),
                   ],
-                      
                 ),
-                
-                  
               ),
               SizedBox(
                 height: 9,

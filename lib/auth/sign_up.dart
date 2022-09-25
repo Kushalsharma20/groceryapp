@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_app/auth/sign_in.dart';
 
 class SignUP extends StatefulWidget {
   const SignUP({super.key});
@@ -20,9 +21,13 @@ class SignUpState extends State<SignUP> {
       body: Container(
         alignment: Alignment.center,
         padding: const EdgeInsets.all(32),
-        decoration: const BoxDecoration(
+        decoration:  BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/authimages/sign.jpeg"),
+            image: AssetImage("assets/authimages/auth4.jpg"),
+            colorFilter: ColorFilter.mode(
+              Colors.purpleAccent.shade100.withOpacity(0.5),
+              BlendMode.modulate,
+            ),
             fit: BoxFit.cover,
           ),
         ),
@@ -42,7 +47,9 @@ class SignUpState extends State<SignUP> {
               decoration: InputDecoration(
                 hintText: 'Enter your name',
                 labelText: 'First Name',
-                border: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
               ),
             ),
             SizedBox(
@@ -52,7 +59,9 @@ class SignUpState extends State<SignUP> {
               decoration: InputDecoration(
                 hintText: 'Last Name',
                 labelText: 'Last Name',
-                border: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
               ),
             ),
             SizedBox(
@@ -63,7 +72,9 @@ class SignUpState extends State<SignUP> {
                 hintText: 'Email',
                 labelText: 'Email',
                 prefixIcon: Icon(Icons.email, color: Colors.black),
-                border: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
               ),
             ),
             SizedBox(
@@ -74,7 +85,9 @@ class SignUpState extends State<SignUP> {
                 hintText: 'Password',
                 labelText: 'Password',
                 prefixIcon: Icon(Icons.lock, color: Colors.black),
-                border: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
               ),
             ),
             SizedBox(
@@ -85,7 +98,9 @@ class SignUpState extends State<SignUP> {
                 hintText: 'Confirm Password',
                 labelText: 'Confirm Password',
                 prefixIcon: Icon(Icons.lock, color: Colors.black),
-                border: OutlineInputBorder(),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
               ),
             ),
             SizedBox(
@@ -96,17 +111,45 @@ class SignUpState extends State<SignUP> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
                 foregroundColor: Colors.white,
+                 padding: EdgeInsets.symmetric(vertical: 22),
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                    ),
               ),
               child: Text('Create Account'),
             ),
-            TextButton(
-              onPressed: () {},
-              style: TextButton.styleFrom(
-                backgroundColor: Colors.transparent,
-                foregroundColor: Colors.black, // foreground
+            Container(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      'Have an account ?',
+                      style:
+                          TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                    ),
+                    SizedBox(
+                      width: 10,
+                    ),
+                    TextButton(
+                      style: TextButton.styleFrom(
+                        backgroundColor: Colors.transparent,
+                        foregroundColor: Colors.black,
+                        padding: EdgeInsets.symmetric(vertical: 22),
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(8)),
+                        ),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => SignIn()),
+                        );
+                      },
+                      child: Text("Login"),
+                    ),
+                  ],
+                ),
               ),
-              child: Text('Have an account?, Login'),
-            ),
           ],
         ),
       ),

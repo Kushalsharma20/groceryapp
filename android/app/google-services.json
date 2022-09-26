@@ -1,19 +1,30 @@
 {
   "project_info": {
+<<<<<<< HEAD
     "project_number": "18186091548",
     "project_id": "vegi-groceries-app",
     "storage_bucket": "vegi-groceries-app.appspot.com"
+=======
+    "project_number": "201537061832",
+    "project_id": "vegi-groceries",
+    "storage_bucket": "vegi-groceries.appspot.com"
+>>>>>>> cb0f39efa0756c619e93624cc165bd5f0e8a31ae
   },
   "client": [
     {
       "client_info": {
+<<<<<<< HEAD
         "mobilesdk_app_id": "1:18186091548:android:188ffa91095be0c14073d9",
+=======
+        "mobilesdk_app_id": "1:201537061832:android:2ab06e362ee3b958b1b6fd",
+>>>>>>> cb0f39efa0756c619e93624cc165bd5f0e8a31ae
         "android_client_info": {
           "package_name": "com.example.grocery_app"
         }
       },
       "oauth_client": [
         {
+<<<<<<< HEAD
           "client_id": "18186091548-dj8077p98760kql91bja42es3a8psq20.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
@@ -23,19 +34,38 @@
         },
         {
           "client_id": "18186091548-uirdaqa00unib4bi658ab2td5g6cflus.apps.googleusercontent.com",
+=======
+          "client_id": "201537061832-2nj5lu5l7g7qqtff2oskd4s0dk4723gf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.grocery_app",
+            "certificate_hash": "5a74a39dea64a4ba18199f305fce2f83ba7350d7"
+          }
+        },
+        {
+          "client_id": "201537061832-el9lio4bri7ngnudf148argekh42efo2.apps.googleusercontent.com",
+>>>>>>> cb0f39efa0756c619e93624cc165bd5f0e8a31ae
           "client_type": 3
         }
       ],
       "api_key": [
         {
+<<<<<<< HEAD
           "current_key": "AIzaSyASFvuV8mo0O6jcDSxCGcquVJB3nqLwhUg"
+=======
+          "current_key": "AIzaSyCiUi4Xcd8Zdv80Ks6JNpbBUlRY14iU5Uc"
+>>>>>>> cb0f39efa0756c619e93624cc165bd5f0e8a31ae
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
+<<<<<<< HEAD
               "client_id": "18186091548-uirdaqa00unib4bi658ab2td5g6cflus.apps.googleusercontent.com",
+=======
+              "client_id": "201537061832-el9lio4bri7ngnudf148argekh42efo2.apps.googleusercontent.com",
+>>>>>>> cb0f39efa0756c619e93624cc165bd5f0e8a31ae
               "client_type": 3
             }
           ]

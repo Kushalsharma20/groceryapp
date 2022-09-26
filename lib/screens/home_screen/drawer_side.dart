@@ -6,7 +6,7 @@ import 'package:grocery_app/screens/my_profile/my_profile.dart';
 class DrawerSide extends StatelessWidget {
   Widget listTile({IconData? icon, String? title, required Function onTap}) {
     return ListTile(
-      onTap: () => MyProfile(),
+      onTap: onTap(),
       leading: Icon(
         icon,
         size: 32,
@@ -34,7 +34,12 @@ class DrawerSide extends StatelessWidget {
                         backgroundColor: scaffoldBackgroundColor,
                         radius: 43,
                         child: CircleAvatar(
-                            radius: 40, backgroundColor: Colors.transparent)),
+                          radius: 40,
+                          backgroundColor: Colors.transparent,
+                          backgroundImage: NetworkImage(
+                            "https://s3.envato.com/files/328957910/vegi_thumb.png",
+                          ),
+                        )),
                     SizedBox(
                       width: 20,
                     ),

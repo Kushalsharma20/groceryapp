@@ -25,7 +25,7 @@ class SignInState extends State<SignIn> {
         padding: const EdgeInsets.all(32),
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage("assets/authimages/auth4.jpg"),
+            image: AssetImage("assets/authimages/sign.jpeg"),
             colorFilter: ColorFilter.mode(
               Colors.purpleAccent.shade100.withOpacity(0.5),
               BlendMode.modulate,

@@ -21,11 +21,11 @@ class SignUpState extends State<SignUP> {
       body: Container(
         alignment: Alignment.center,
         padding: const EdgeInsets.all(32),
-        decoration:  BoxDecoration(
+        decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/authimages/auth4.jpg"),
             colorFilter: ColorFilter.mode(
-              Colors.purpleAccent.shade100.withOpacity(0.5),
+              Colors.white60.withOpacity(0.7),
               BlendMode.modulate,
             ),
             fit: BoxFit.cover,
@@ -111,45 +111,44 @@ class SignUpState extends State<SignUP> {
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.green,
                 foregroundColor: Colors.white,
-                 padding: EdgeInsets.symmetric(vertical: 22),
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
-                    ),
+                padding: EdgeInsets.symmetric(vertical: 22),
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.all(Radius.circular(30)),
+                ),
               ),
               child: Text('Create Account'),
             ),
             Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'Have an account ?',
-                      style:
-                          TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
-                    ),
-                    SizedBox(
-                      width: 10,
-                    ),
-                    TextButton(
-                      style: TextButton.styleFrom(
-                        backgroundColor: Colors.transparent,
-                        foregroundColor: Colors.black,
-                        padding: EdgeInsets.symmetric(vertical: 22),
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(8)),
-                        ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'Have an account ?',
+                    style: TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
+                  ),
+                  SizedBox(
+                    width: 0.2,
+                  ),
+                  TextButton(
+                    style: TextButton.styleFrom(
+                      backgroundColor: Colors.transparent,
+                      foregroundColor: Colors.black,
+                      padding: EdgeInsets.symmetric(vertical: 22),
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(8)),
                       ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => SignIn()),
-                        );
-                      },
-                      child: Text("Login"),
                     ),
-                  ],
-                ),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => SignIn()),
+                      );
+                    },
+                    child: Text("Login"),
+                  ),
+                ],
               ),
+            ),
           ],
         ),
       ),

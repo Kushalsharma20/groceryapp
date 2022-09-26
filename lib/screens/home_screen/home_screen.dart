@@ -126,11 +126,10 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var primaryColor;
     return Scaffold(
       drawer: DrawerSide(),
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        backgroundColor: Colors.green,
         iconTheme: IconThemeData(color: textColor),
         title: Text(
           'Home',
@@ -138,7 +137,7 @@ class HomeScreen extends StatelessWidget {
         ),
         actions: [
           CircleAvatar(
-            backgroundColor: primaryColor,
+            backgroundColor: Colors.transparent,
             radius: 12,
             child: Icon(
               Icons.search,
@@ -149,7 +148,7 @@ class HomeScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
             child: CircleAvatar(
-              backgroundColor: primaryColor,
+              backgroundColor: Colors.transparent,
               radius: 12,
               child: Icon(
                 Icons.shop,

@@ -20,21 +20,20 @@ class DrawerSide extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-        backgroundColor: primarycolor,
+        backgroundColor: Colors.green,
         child: Container(
           width: 100,
-          color: primarycolor,
+          color: Colors.green,
           child: ListView(
             children: [
               DrawerHeader(
                 child: Row(
                   children: [
                     CircleAvatar(
-                      backgroundColor: scaffoldBackgroundColor,
-                      radius: 43,
-                      child: CircleAvatar(
-                          radius: 40, backgroundColor: primarycolor),
-                    ),
+                        backgroundColor: scaffoldBackgroundColor,
+                        radius: 43,
+                        child: CircleAvatar(
+                            radius: 40, backgroundColor: Colors.transparent)),
                     SizedBox(
                       width: 20,
                     ),
@@ -48,17 +47,21 @@ class DrawerSide extends StatelessWidget {
                         Container(
                           height: 30,
                           child: OutlinedButton(
+                            style: OutlinedButton.styleFrom(
+                                backgroundColor: Colors.black,
+                                foregroundColor: Colors.white),
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => SignIn()),
+                                MaterialPageRoute(
+                                    builder: (context) => SignIn()),
                               );
                             },
                             child: Text(
                               "Login",
                             ),
                           ),
-                        )
+                        ),
                       ],
                     )
                   ],

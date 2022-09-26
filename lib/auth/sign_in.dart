@@ -27,7 +27,7 @@ class SignInState extends State<SignIn> {
           image: DecorationImage(
             image: AssetImage("assets/authimages/sign.jpeg"),
             colorFilter: ColorFilter.mode(
-              Colors.purpleAccent.shade100.withOpacity(0.5),
+              Colors.white.withOpacity(0.7),
               BlendMode.modulate,
             ),
             fit: BoxFit.cover,
@@ -108,7 +108,7 @@ class SignInState extends State<SignIn> {
                           TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
                     ),
                     SizedBox(
-                      width: 10,
+                      width: 0.2,
                     ),
                     TextButton(
                       style: TextButton.styleFrom(

@@ -3,6 +3,7 @@ import 'package:grocery_app/config/colors.dart';
 import 'package:grocery_app/screens/home_screen/drawer_side.dart';
 import 'package:grocery_app/screens/home_screen/singal_product.dart';
 import 'package:grocery_app/screens/product_overview/product_overview.dart';
+import 'package:grocery_app/screens/search/search.dart';
 
 class HomeScreen extends StatelessWidget {
   Widget _buildHerbsProduct(context) {
@@ -139,11 +140,16 @@ class HomeScreen extends StatelessWidget {
           CircleAvatar(
             backgroundColor: Colors.transparent,
             radius: 12,
-            child: Icon(
-              Icons.search,
-              size: 17,
-              color: textColor,
-            ),
+            child: IconButton(
+                onPressed: () {
+                  Navigator.of(context)
+                      .push(MaterialPageRoute(builder: (context) => Search()));
+                },
+                icon: Icon(
+                  Icons.search,
+                  size: 17,
+                  color: textColor,
+                )),
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),

@@ -6,7 +6,7 @@ import 'package:grocery_app/screens/my_profile/my_profile.dart';
 class DrawerSide extends StatelessWidget {
   Widget listTile({IconData? icon, String? title, required Function onTap}) {
     return ListTile(
-      onTap: onTap(),
+      onTap: () {},
       leading: Icon(
         icon,
         size: 32,

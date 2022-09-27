@@ -36,7 +36,11 @@ class Search extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            SearchItem()
+            SearchItem(),
+            SearchItem(),
+            SearchItem(),
+            SearchItem(),
+            SearchItem(),
           ],
         ));
   }

@@ -5,6 +5,7 @@ import 'package:grocery_app/screens/home_screen/home_screen.dart';
 import 'package:grocery_app/screens/my_profile/my_profile.dart';
 
 class DrawerSide extends StatelessWidget {
+  DrawerSelection _drawerSelection = DrawerSelection.home;
   Widget listTile({IconData? icon, String? title, required Function onTap}) {
     return ListTile(
       onTap: () {},
@@ -75,60 +76,77 @@ class DrawerSide extends StatelessWidget {
                 ),
               ),
               ListTile(
+                  selected: _drawerSelection == DrawerSelection.home,
                   leading: Icon(Icons.home_outlined),
                   title: Text("Home", textDirection: TextDirection.ltr),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => HomeScreen()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()));
                   }),
               ListTile(
                   leading: Icon(Icons.shop_outlined),
                   title: Text("Review", textDirection: TextDirection.ltr),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => const MyProfile()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MyProfile()));
                   }),
               ListTile(
                   leading: Icon(Icons.person_outline),
                   title: Text("My Profile", textDirection: TextDirection.ltr),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => const MyProfile()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MyProfile()));
                   }),
               ListTile(
                   leading: Icon(Icons.notifications_outlined),
                   title: Text("Notification", textDirection: TextDirection.ltr),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => const MyProfile()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MyProfile()));
                   }),
               ListTile(
                   leading: Icon(Icons.star_outline),
-                  title: Text("Rating & Review", textDirection: TextDirection.ltr),
+                  title:
+                      Text("Rating & Review", textDirection: TextDirection.ltr),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => const MyProfile()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MyProfile()));
                   }),
               ListTile(
                   leading: Icon(Icons.favorite_outlined),
                   title: Text("Wishlist", textDirection: TextDirection.ltr),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => const MyProfile()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MyProfile()));
                   }),
               ListTile(
                   leading: Icon(Icons.copy_outlined),
-                  title: Text("Raise A Complaint", textDirection: TextDirection.ltr),
+                  title: Text("Raise A Complaint",
+                      textDirection: TextDirection.ltr),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => const MyProfile()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MyProfile()));
                   }),
               ListTile(
                   leading: Icon(Icons.format_quote_rounded),
                   title: Text("FAQ's", textDirection: TextDirection.ltr),
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(
-                        builder: (context) => const MyProfile()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const MyProfile()));
                   }),
               Container(
                 height: 350,
@@ -172,3 +190,5 @@ class DrawerSide extends StatelessWidget {
         ));
   }
 }
+
+enum DrawerSelection { home }

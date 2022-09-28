@@ -130,7 +130,7 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       drawer: DrawerSide(),
       appBar: AppBar(
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.yellow,
         iconTheme: IconThemeData(color: textColor),
         title: Text(
           'Home',

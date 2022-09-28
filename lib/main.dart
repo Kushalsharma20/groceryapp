@@ -1,13 +1,10 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:grocery_app/auth/sign_in.dart';
-import 'package:grocery_app/auth/sign_up.dart';
 import 'package:grocery_app/screens/home_screen/home_screen.dart';
-import 'package:grocery_app/screens/product_overview/product_overview.dart';
 
-void main() async {
+
+
+void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 

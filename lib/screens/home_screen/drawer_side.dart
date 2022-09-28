@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/auth/sign_in.dart';
 import 'package:grocery_app/config/colors.dart';
+import 'package:grocery_app/screens/home_screen/home_screen.dart';
 import 'package:grocery_app/screens/my_profile/my_profile.dart';
 
 class DrawerSide extends StatelessWidget {
@@ -73,38 +74,62 @@ class DrawerSide extends StatelessWidget {
                   ],
                 ),
               ),
-              listTile(icon: Icons.home_outlined, title: "Home", onTap: () {}),
-              listTile(
-                  icon: Icons.shop_outlined,
-                  title: "Review Cart",
-                  onTap: () {}),
-              listTile(
-                  icon: Icons.person_outline,
-                  title: "My Profile",
+              ListTile(
+                  leading: Icon(Icons.home_outlined),
+                  title: Text("Home", textDirection: TextDirection.ltr),
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => HomeScreen()));
+                  }),
+              ListTile(
+                  leading: Icon(Icons.shop_outlined),
+                  title: Text("Review", textDirection: TextDirection.ltr),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(
                         builder: (context) => const MyProfile()));
                   }),
-              listTile(
-                  icon: Icons.notifications_outlined,
-                  title: "Notification",
-                  onTap: () {}),
-              listTile(
-                  icon: Icons.star_outline,
-                  title: "Rating & Review",
-                  onTap: () {}),
-              listTile(
-                  icon: Icons.favorite_outlined,
-                  title: "Wishlist",
-                  onTap: () {}),
-              listTile(
-                  icon: Icons.copy_outlined,
-                  title: "Raise A Complaint",
-                  onTap: () {}),
-              listTile(
-                  icon: Icons.format_quote_rounded,
-                  title: "FAQ's",
-                  onTap: () {}),
+              ListTile(
+                  leading: Icon(Icons.person_outline),
+                  title: Text("My Profile", textDirection: TextDirection.ltr),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => const MyProfile()));
+                  }),
+              ListTile(
+                  leading: Icon(Icons.notifications_outlined),
+                  title: Text("Notification", textDirection: TextDirection.ltr),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => const MyProfile()));
+                  }),
+              ListTile(
+                  leading: Icon(Icons.star_outline),
+                  title: Text("Rating & Review", textDirection: TextDirection.ltr),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => const MyProfile()));
+                  }),
+              ListTile(
+                  leading: Icon(Icons.favorite_outlined),
+                  title: Text("Wishlist", textDirection: TextDirection.ltr),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => const MyProfile()));
+                  }),
+              ListTile(
+                  leading: Icon(Icons.copy_outlined),
+                  title: Text("Raise A Complaint", textDirection: TextDirection.ltr),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => const MyProfile()));
+                  }),
+              ListTile(
+                  leading: Icon(Icons.format_quote_rounded),
+                  title: Text("FAQ's", textDirection: TextDirection.ltr),
+                  onTap: () {
+                    Navigator.push(context, MaterialPageRoute(
+                        builder: (context) => const MyProfile()));
+                  }),
               Container(
                 height: 350,
                 padding: EdgeInsets.symmetric(horizontal: 20),

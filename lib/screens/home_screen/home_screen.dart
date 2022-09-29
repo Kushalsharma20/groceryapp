@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/config/colors.dart';
+import 'package:grocery_app/providers/product_provider.dart';
 import 'package:grocery_app/screens/home_screen/drawer_side.dart';
 import 'package:grocery_app/screens/home_screen/singal_product.dart';
 import 'package:grocery_app/screens/product_overview/product_overview.dart';
 import 'package:grocery_app/screens/search/search.dart';
+import 'package:provider/provider.dart';
 
-class HomeScreen extends StatelessWidget {
+class HomeScreen extends StatefulWidget {
+  @override
+  State<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends State<HomeScreen> {
   Widget _buildHerbsProduct(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -126,7 +133,19 @@ class HomeScreen extends StatelessWidget {
   }
 
   @override
+  void initState() {
+    ProductProvider productProvider = Provider.of(context, listen: false);
+    productProvider.fatchHerbsProductData();
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
+    ProductProvider productProvider = Provider.of(
+      context,
+    );
+    productProvider.fatchHerbsProductData();
     return Scaffold(
       drawer: DrawerSide(),
       appBar: AppBar(

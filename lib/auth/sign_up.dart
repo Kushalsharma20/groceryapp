@@ -16,7 +16,7 @@ class SignUpState extends State<SignUP> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Vegi Groceries"),
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.yellow,
       ),
       body: Container(
         alignment: Alignment.center,
@@ -24,10 +24,7 @@ class SignUpState extends State<SignUP> {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/authimages/sign.jpeg"),
-            colorFilter: ColorFilter.mode(
-              Colors.white60.withOpacity(0.7),
-              BlendMode.modulate,
-            ),
+            
             fit: BoxFit.cover,
           ),
         ),
@@ -43,22 +40,12 @@ class SignUpState extends State<SignUP> {
             SizedBox(
               height: 40,
             ),
+            
             TextField(
               decoration: InputDecoration(
-                hintText: 'Enter your name',
-                labelText: 'First Name',
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
-              ),
-            ),
-            SizedBox(
-              height: 9,
-            ),
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Last Name',
-                labelText: 'Last Name',
+                hintText: 'Username',
+                labelText: 'Username',
+                prefixIcon: Icon(Icons.person, color: Colors.black),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(30.0),
                 ),
@@ -109,7 +96,7 @@ class SignUpState extends State<SignUP> {
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.green,
+                backgroundColor: Colors.yellow,
                 foregroundColor: Colors.white,
                 padding: EdgeInsets.symmetric(vertical: 22),
                 shape: const RoundedRectangleBorder(

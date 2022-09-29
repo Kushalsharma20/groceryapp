@@ -18,7 +18,7 @@ class SignInState extends State<SignIn> {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Vegi Groceries"),
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.yellow,
       ),
       body: Container(
         alignment: Alignment.center,
@@ -26,10 +26,7 @@ class SignInState extends State<SignIn> {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/authimages/sign.jpeg"),
-            colorFilter: ColorFilter.mode(
-              Colors.white.withOpacity(0.7),
-              BlendMode.modulate,
-            ),
+            
             fit: BoxFit.cover,
           ),
         ),
@@ -79,7 +76,7 @@ class SignInState extends State<SignIn> {
               Container(
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
+                    backgroundColor: Colors.yellow,
                     foregroundColor: Colors.white,
                     padding: EdgeInsets.symmetric(vertical: 22),
                     shape: const RoundedRectangleBorder(

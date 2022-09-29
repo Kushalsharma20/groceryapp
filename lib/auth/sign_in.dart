@@ -26,7 +26,6 @@ class SignInState extends State<SignIn> {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/authimages/sign.jpeg"),
-            
             fit: BoxFit.cover,
           ),
         ),

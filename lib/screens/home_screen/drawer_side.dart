@@ -3,6 +3,7 @@ import 'package:grocery_app/auth/sign_in.dart';
 import 'package:grocery_app/config/colors.dart';
 import 'package:grocery_app/screens/home_screen/home_screen.dart';
 import 'package:grocery_app/screens/my_profile/my_profile.dart';
+import 'package:grocery_app/screens/review%20_cart/review_cart.dart';
 
 class DrawerSide extends StatelessWidget {
   DrawerSelection _drawerSelection = DrawerSelection.home;
@@ -90,7 +91,7 @@ class DrawerSide extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const MyProfile()));
+                            builder: (context) => const ReviewCart()));
                   }),
               ListTile(
                   leading: Icon(Icons.person_outline),

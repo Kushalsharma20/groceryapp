@@ -13,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late ProductProvider productProvider;
   Widget _buildHerbsProduct(context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -142,10 +143,9 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    ProductProvider productProvider = Provider.of(
+    productProvider = Provider.of(
       context,
     );
-    productProvider.fatchHerbsProductData();
     return Scaffold(
       drawer: DrawerSide(),
       appBar: AppBar(

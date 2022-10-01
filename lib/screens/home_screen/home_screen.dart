@@ -133,19 +133,19 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  @override
-  void initState() {
-    ProductProvider productProvider = Provider.of(context, listen: false);
-    productProvider.fatchHerbsProductData();
-    // TODO: implement initState
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   ProductProvider productProvider = Provider.of(context, listen: false);
+  //   productProvider.fatchHerbsProductData();
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
     productProvider = Provider.of(
       context,
     );
+    productProvider.fatchHerbsProductData();
     return Scaffold(
       drawer: DrawerSide(),
       appBar: AppBar(

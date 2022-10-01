@@ -4,9 +4,12 @@ import 'package:grocery_app/auth/sign_up.dart';
 import 'package:grocery_app/providers/product_provider.dart';
 import 'package:grocery_app/screens/home_screen/home_screen.dart';
 import 'package:provider/provider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp();
   runApp(const MyApp());
 }
 
@@ -17,11 +20,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<ProductProvider>(
-      create: ((context) => ProductProvider()),
+      create: (context) => ProductProvider(),
       child: MaterialApp(
           theme: ThemeData(),
           debugShowCheckedModeBanner: false,
-          home: SignIn()),
+          home: HomeScreen()),
     );
   }
 }

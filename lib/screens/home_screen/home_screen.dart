@@ -34,27 +34,23 @@ class _HomeScreenState extends State<HomeScreen> {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
-            children: [
-              SingalProduct(
+            children:
+                productProvider.getHerbsProductDataList.map((herbsProductData) {
+              return SingalProduct(
                 onTap: () {
                   Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => ProductOverview()));
+                      builder: (context) => ProductOverview(
+                            productImage: herbsProductData.productImage,
+                            productName: herbsProductData.productName,
+                          )));
                 },
-                productImage:
-                    ('https://www.veggycation.com.au/siteassets/veggycationvegetable/basil.jpg'),
-                productName: ' Fresh Basil',
-              ),
-              SingalProduct(
-                  productImage:
-                      ('https://b.rgbimg.com/cache1oVrZF/users/g/gr/greyman/600/mC2DvC2.jpg'),
-                  productName: 'Fresh tomatos',
-                  onTap: () {}),
-              SingalProduct(
-                  productImage:
-                      ('https://thumbs.dreamstime.com/b/cloves-15938229.jpg'),
-                  productName: 'Cloves',
-                  onTap: () {}),
-            ],
+                productImage: herbsProductData.productImage,
+                productName: herbsProductData.productName,
+              );
+            }).toList(),
+            // children: [
+
+            // ],
           ),
         ),
       ],
@@ -133,12 +129,12 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  // @override
-  // void initState() {
-  //   ProductProvider productProvider = Provider.of(context, listen: false);
-  //   productProvider.fatchHerbsProductData();
-  //   super.initState();
-  // }
+  @override
+  void initState() {
+    ProductProvider productProvider = Provider.of(context, listen: false);
+    productProvider.fatchHerbsProductData();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

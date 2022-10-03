@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/config/colors.dart';
 import 'package:grocery_app/screens/product_overview/product_overview.dart';
+import 'package:grocery_app/screens/home_screen/home_screen.dart';
 
 class SingalProduct extends StatelessWidget {
   final String productImage;
@@ -33,8 +34,12 @@ class SingalProduct extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
+                    var herbsProductData;
                     Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => ProductOverview()));
+                        builder: (context) => ProductOverview(
+                              productImage: herbsProductData.productImage,
+                              productName: herbsProductData.productName,
+                            )));
                   },
                   child: Container(
                     height: 150,

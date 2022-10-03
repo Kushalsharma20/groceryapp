@@ -23,7 +23,7 @@ class ProductProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  get getHerbsProductDataList {
+  List<ProductModel> get getHerbsProductDataList {
     return herbsProductList;
   }
 }

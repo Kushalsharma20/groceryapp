@@ -4,7 +4,8 @@ import 'package:grocery_app/config/colors.dart';
 enum SigninCharacter { fill, outline }
 
 class ProductOverview extends StatefulWidget {
-  const ProductOverview({super.key});
+  const ProductOverview(
+      {super.key, required String productImage, required String productName});
 
   @override
   State<ProductOverview> createState() => _ProductOverview();

@@ -44,42 +44,39 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAfbzCu6Xzp0M8CxZEYbGep5QMYSNiwufE',
-    appId: '1:18186091548:web:3e61df97d6355d0d4073d9',
-    messagingSenderId: '18186091548',
-    projectId: 'vegi-groceries-app',
-    authDomain: 'vegi-groceries-app.firebaseapp.com',
-    storageBucket: 'vegi-groceries-app.appspot.com',
-    measurementId: 'G-6LRMYQXWFH',
+    apiKey: 'AIzaSyBxXfAdMOZaIQjynwOZ_LvaBNsX0ljc1HE',
+    appId: '1:835773619895:web:0989f4bcd1b9634569b732',
+    messagingSenderId: '835773619895',
+    projectId: 'vegi-eda38',
+    authDomain: 'vegi-eda38.firebaseapp.com',
+    storageBucket: 'vegi-eda38.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyASFvuV8mo0O6jcDSxCGcquVJB3nqLwhUg',
-    appId: '1:18186091548:android:188ffa91095be0c14073d9',
-    messagingSenderId: '18186091548',
-    projectId: 'vegi-groceries-app',
-    storageBucket: 'vegi-groceries-app.appspot.com',
+    apiKey: 'AIzaSyBgnmEnCBTbtD-pOWqfSvsV6c4M_Mhxv8c',
+    appId: '1:835773619895:android:595376efeb0054b269b732',
+    messagingSenderId: '835773619895',
+    projectId: 'vegi-eda38',
+    storageBucket: 'vegi-eda38.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyDFQyXHuQogpeCtfAl3HrZuJpHymXtooQE',
-    appId: '1:18186091548:ios:edbb59e3dcee226f4073d9',
-    messagingSenderId: '18186091548',
-    projectId: 'vegi-groceries-app',
-    storageBucket: 'vegi-groceries-app.appspot.com',
-    androidClientId: '18186091548-dj8077p98760kql91bja42es3a8psq20.apps.googleusercontent.com',
-    iosClientId: '18186091548-cb8mn7o4bhk8i9igndeqvriaig9laorm.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDdbUL3dcVGZWG5e7IspmIZso1JpRA4s7I',
+    appId: '1:835773619895:ios:af761ef1ddac5a7f69b732',
+    messagingSenderId: '835773619895',
+    projectId: 'vegi-eda38',
+    storageBucket: 'vegi-eda38.appspot.com',
+    iosClientId: '835773619895-13d86ular9ssstskfjhhrod7s1qj84ff.apps.googleusercontent.com',
     iosBundleId: 'com.example.groceryApp',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDFQyXHuQogpeCtfAl3HrZuJpHymXtooQE',
-    appId: '1:18186091548:ios:edbb59e3dcee226f4073d9',
-    messagingSenderId: '18186091548',
-    projectId: 'vegi-groceries-app',
-    storageBucket: 'vegi-groceries-app.appspot.com',
-    androidClientId: '18186091548-dj8077p98760kql91bja42es3a8psq20.apps.googleusercontent.com',
-    iosClientId: '18186091548-cb8mn7o4bhk8i9igndeqvriaig9laorm.apps.googleusercontent.com',
+    apiKey: 'AIzaSyDdbUL3dcVGZWG5e7IspmIZso1JpRA4s7I',
+    appId: '1:835773619895:ios:af761ef1ddac5a7f69b732',
+    messagingSenderId: '835773619895',
+    projectId: 'vegi-eda38',
+    storageBucket: 'vegi-eda38.appspot.com',
+    iosClientId: '835773619895-13d86ular9ssstskfjhhrod7s1qj84ff.apps.googleusercontent.com',
     iosBundleId: 'com.example.groceryApp',
   );
 }

@@ -1,34 +1,41 @@
 {
   "project_info": {
-    "project_number": "48787671818",
-    "project_id": "vegi-groceries-4f867",
-    "storage_bucket": "vegi-groceries-4f867.appspot.com"
+    "project_number": "835773619895",
+    "project_id": "vegi-eda38",
+    "storage_bucket": "vegi-eda38.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:48787671818:android:661e02f0df4f43946c48f3",
+        "mobilesdk_app_id": "1:835773619895:android:595376efeb0054b269b732",
         "android_client_info": {
           "package_name": "com.example.grocery_app"
         }
       },
       "oauth_client": [
         {
-          "client_id": "48787671818-2dsi8ocd9chrppgbn9m0id1u5ms6ka5t.apps.googleusercontent.com",
+          "client_id": "835773619895-8341tj1slbsfrlsfllnlr9cuarghqlli.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyC9oivxgeWVHMPqxp4U6YZjA_jHnLgpzB8"
+          "current_key": "AIzaSyBgnmEnCBTbtD-pOWqfSvsV6c4M_Mhxv8c"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "48787671818-2dsi8ocd9chrppgbn9m0id1u5ms6ka5t.apps.googleusercontent.com",
+              "client_id": "835773619895-8341tj1slbsfrlsfllnlr9cuarghqlli.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "835773619895-13d86ular9ssstskfjhhrod7s1qj84ff.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.groceryApp"
+              }
             }
           ]
         }

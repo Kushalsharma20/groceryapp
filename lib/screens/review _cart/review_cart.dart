@@ -7,6 +7,7 @@ class ReviewCart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var data;
     return Scaffold(
       bottomNavigationBar: ListTile(
         title: Text("Total Amount"),
@@ -38,18 +39,27 @@ class ReviewCart extends StatelessWidget {
           ),
           SingleItem(
             isBool: true,
+            productImage: data.productImage,
+            productName: data.productName,
+            productPrice: data.productPrice,
           ),
           SingleItem(
             isBool: true,
+            productImage: data.productImage,
+            productName: data.productName,
+            productPrice: data.productPrice,
           ),
           SingleItem(
             isBool: true,
+            productImage: data.productImage,
+            productName: data.productName,
+            productPrice: data.productPrice,
           ),
           SingleItem(
             isBool: true,
-          ),
-          SingleItem(
-            isBool: true,
+            productImage: data.productImage,
+            productName: data.productName,
+            productPrice: data.productPrice,
           ),
           SizedBox(
             height: 10,

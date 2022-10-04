@@ -3,7 +3,14 @@ import 'package:grocery_app/config/colors.dart';
 
 class SingleItem extends StatelessWidget {
   bool isBool = false;
-  SingleItem({required this.isBool});
+  String productImage;
+  String productName;
+  int productPrice;
+  SingleItem(
+      {required this.isBool,
+      required this.productImage,
+      required this.productName,
+      required this.productPrice});
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +22,7 @@ class SingleItem extends StatelessWidget {
               child: Container(
             height: 100,
             child: Center(
-              child: Image.network(
-                  "https://www.veggycation.com.au/siteassets/veggycationvegetable/basil.jpg"),
+              child: Image.network(productImage),
             ),
           )),
           Expanded(
@@ -30,12 +36,12 @@ class SingleItem extends StatelessWidget {
               children: [
                 Column(children: [
                   Text(
-                    "Product Name",
+                    productName,
                     style: TextStyle(
                         color: textColor, fontWeight: FontWeight.bold),
                   ),
                   Text(
-                    "1000\/=/100 grams",
+                    "$productPrice\UGX",
                     style: TextStyle(
                       color: Colors.grey,
                     ),

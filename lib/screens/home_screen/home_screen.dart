@@ -22,11 +22,22 @@ class _HomeScreenState extends State<HomeScreen> {
           padding: const EdgeInsets.symmetric(vertical: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: const [
+            children: [
               Text('Herbs Seasonings'),
-              Text(
-                'view all',
-                style: TextStyle(color: Colors.grey),
+              GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => Search(
+                        search: productProvider.getHerbsProductDataList,
+                      ),
+                    ),
+                  );
+                },
+                child: Text(
+                  'view all',
+                  style: TextStyle(color: Colors.grey),
+                ),
               ),
             ],
           ),
@@ -42,10 +53,12 @@ class _HomeScreenState extends State<HomeScreen> {
                       builder: (context) => ProductOverview(
                             productImage: herbsProductData.productImage,
                             productName: herbsProductData.productName,
+                            productPrice: herbsProductData.productPrice,
                           )));
                 },
                 productImage: herbsProductData.productImage,
                 productName: herbsProductData.productName,
+                productPrice: '',
               );
             }).toList(),
             // children: [
@@ -78,14 +91,14 @@ class _HomeScreenState extends State<HomeScreen> {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              SingalProduct(
-                  productImage: (''),
-                  productName: 'Strawberries',
-                  onTap: () {}),
-              SingalProduct(
-                  productImage: (''), productName: 'Kiwi', onTap: () {}),
-              SingalProduct(
-                  productImage: (''), productName: 'Grapes', onTap: () {}),
+              // SingalProduct(
+              //     productImage: (''),
+              //     productName: 'Strawberries',
+              //     onTap: () {}),
+              // SingalProduct(
+              //     productImage: (''), productName: 'Kiwi', onTap: () {}),
+              // SingalProduct(
+              //     productImage: (''), productName: 'Grapes', onTap: () {}),
             ],
           ),
         ),
@@ -114,14 +127,14 @@ class _HomeScreenState extends State<HomeScreen> {
           scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              SingalProduct(
-                  productImage: (''), productName: 'Cassava', onTap: () {}),
-              SingalProduct(
-                  productImage: (''), productName: 'Yams', onTap: () {}),
-              SingalProduct(
-                  productImage: (''),
-                  productName: 'Sweet Potatoes',
-                  onTap: () {}),
+              // SingalProduct(
+              //     productImage: (''), productName: 'Cassava', onTap: () {}),
+              // SingalProduct(
+              //     productImage: (''), productName: 'Yams', onTap: () {}),
+              // SingalProduct(
+              //     productImage: (''),
+              //     productName: 'Sweet Potatoes',
+              //     onTap: () {}),
             ],
           ),
         ),
@@ -156,10 +169,7 @@ class _HomeScreenState extends State<HomeScreen> {
             backgroundColor: Colors.transparent,
             radius: 12,
             child: IconButton(
-                onPressed: () {
-                  Navigator.of(context)
-                      .push(MaterialPageRoute(builder: (context) => Search()));
-                },
+                onPressed: () {},
                 icon: Icon(
                   Icons.search,
                   size: 17,
@@ -216,7 +226,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             child: const Center(
                               child: Text(
-                                'Veggie',
+                                'Vegi',
                                 style: TextStyle(
                                   fontSize: 20,
                                   color: Colors.white,

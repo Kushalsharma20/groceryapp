@@ -6,12 +6,14 @@ import 'package:grocery_app/screens/home_screen/home_screen.dart';
 class SingalProduct extends StatelessWidget {
   final String productImage;
   final String productName;
+  final String productPrice;
   final Function onTap;
 
   SingalProduct({
     required this.productImage,
     required this.productName,
     required this.onTap,
+    required this.productPrice,
   });
 
   @override
@@ -39,6 +41,7 @@ class SingalProduct extends StatelessWidget {
                         builder: (context) => ProductOverview(
                               productImage: herbsProductData.productImage,
                               productName: herbsProductData.productName,
+                              productPrice: herbsProductData.productPrice,
                             )));
                   },
                   child: Container(
@@ -66,7 +69,7 @@ class SingalProduct extends StatelessWidget {
                           ),
                         ),
                         Text(
-                          '100\UGX 1000 Gram',
+                          '${productPrice}\UGX 1000 Gram',
                           style: TextStyle(color: Colors.grey),
                         ),
                         SizedBox(

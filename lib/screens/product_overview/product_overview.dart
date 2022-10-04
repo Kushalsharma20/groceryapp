@@ -4,8 +4,14 @@ import 'package:grocery_app/config/colors.dart';
 enum SigninCharacter { fill, outline }
 
 class ProductOverview extends StatefulWidget {
-  const ProductOverview(
-      {super.key, required String productImage, required String productName});
+  final String productImage;
+  final String productName;
+  final int productPrice;
+  const ProductOverview({
+    required this.productImage,
+    required this.productName,
+    required this.productPrice,
+  });
 
   @override
   State<ProductOverview> createState() => _ProductOverview();
@@ -123,7 +129,7 @@ class _ProductOverview extends State<ProductOverview> {
                                   });
                                 })
                           ]),
-                          Text("\UGX 1000"),
+                          Text("\UGX${widget.productPrice}"),
                           Container(
                             padding: EdgeInsets.symmetric(
                               horizontal: 30,

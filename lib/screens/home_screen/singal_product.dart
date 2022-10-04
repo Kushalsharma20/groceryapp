@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:grocery_app/config/colors.dart';
 import 'package:grocery_app/screens/product_overview/product_overview.dart';
 import 'package:grocery_app/screens/home_screen/home_screen.dart';
+import 'package:grocery_app/widgets/count.dart';
 
 class SingalProduct extends StatelessWidget {
   final String productImage;
@@ -116,6 +117,7 @@ class SingalProduct extends StatelessWidget {
                             SizedBox(
                               width: 5,
                             ),
+                            Count()
                           ],
                         ),
                       ],

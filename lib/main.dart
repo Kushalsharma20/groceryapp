@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:grocery_app/auth/sign_in.dart';
-import 'package:grocery_app/auth/sign_up.dart';
 import 'package:grocery_app/providers/product_provider.dart';
 import 'package:grocery_app/screens/home_screen/home_screen.dart';
 import 'package:provider/provider.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 

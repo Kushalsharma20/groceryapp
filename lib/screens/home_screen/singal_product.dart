@@ -7,7 +7,7 @@ import 'package:grocery_app/widgets/count.dart';
 class SingalProduct extends StatelessWidget {
   final String productImage;
   final String productName;
-  final String productPrice;
+  final int productPrice;
   final Function onTap;
 
   SingalProduct({
@@ -117,7 +117,13 @@ class SingalProduct extends StatelessWidget {
                             SizedBox(
                               width: 5,
                             ),
-                            Count()
+                            Count(
+                              productId: "sadsad",
+                              productImage: productImage,
+                              productName: productName,
+                              productPrice: productPrice,
+                              productQuantity: "1",
+                            )
                           ],
                         ),
                       ],

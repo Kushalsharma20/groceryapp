@@ -58,7 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 },
                 productImage: herbsProductData.productImage,
                 productName: herbsProductData.productName,
-                productPrice: '',
+                productPrice: herbsProductData.productPrice,
               );
             }).toList(),
             // children: [

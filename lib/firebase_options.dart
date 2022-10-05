@@ -45,7 +45,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyBxXfAdMOZaIQjynwOZ_LvaBNsX0ljc1HE',
-    appId: '1:835773619895:web:0989f4bcd1b9634569b732',
+    appId: '1:835773619895:web:3cf42a8d0f9dbb9b69b732',
     messagingSenderId: '835773619895',
     projectId: 'vegi-eda38',
     authDomain: 'vegi-eda38.firebaseapp.com',
@@ -62,7 +62,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDdbUL3dcVGZWG5e7IspmIZso1JpRA4s7I',
-    appId: '1:835773619895:ios:af761ef1ddac5a7f69b732',
+    appId: '1:835773619895:ios:bdcfa8a887fb2a1469b732',
     messagingSenderId: '835773619895',
     projectId: 'vegi-eda38',
     storageBucket: 'vegi-eda38.appspot.com',
@@ -72,7 +72,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyDdbUL3dcVGZWG5e7IspmIZso1JpRA4s7I',
-    appId: '1:835773619895:ios:af761ef1ddac5a7f69b732',
+    appId: '1:835773619895:ios:bdcfa8a887fb2a1469b732',
     messagingSenderId: '835773619895',
     projectId: 'vegi-eda38',
     storageBucket: 'vegi-eda38.appspot.com',

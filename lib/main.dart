@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_app/flutterwave.dart';
 import 'package:grocery_app/providers/product_provider.dart';
 import 'package:grocery_app/screens/home_screen/home_screen.dart';
 import 'package:provider/provider.dart';
@@ -14,6 +15,7 @@ void main() async {
   runApp(const MyApp());
 }
 
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
           theme: ThemeData(),
           debugShowCheckedModeBanner: false,
-          home: HomeScreen()),
+          home: Vegipay()),
     );
   }
 }

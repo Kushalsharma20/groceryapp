@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
           theme: ThemeData(),
           debugShowCheckedModeBanner: false,
-          home: HomeScreen()),
+          home: Vegipay()),
     );
   }
 }

@@ -1,3 +1,4 @@
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery_app/auth/sign_in.dart';
 
@@ -24,7 +25,6 @@ class SignUpState extends State<SignUP> {
         decoration: BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/authimages/sign.jpeg"),
-            
             fit: BoxFit.cover,
           ),
         ),
@@ -40,7 +40,6 @@ class SignUpState extends State<SignUP> {
             SizedBox(
               height: 40,
             ),
-            
             TextField(
               decoration: InputDecoration(
                 hintText: 'Username',
@@ -93,17 +92,27 @@ class SignUpState extends State<SignUP> {
             SizedBox(
               height: 15,
             ),
-            ElevatedButton(
-              onPressed: () {},
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.yellow,
-                foregroundColor: Colors.white,
-                padding: EdgeInsets.symmetric(vertical: 22),
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(30)),
+            Container(
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.yellow,
+                  foregroundColor: Colors.white,
+                  padding: EdgeInsets.symmetric(vertical: 22),
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(30)),
+                  ),
                 ),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SignIn()),
+                  );
+                },
+                child: Text('Create Account'),
               ),
-              child: Text('Create Account'),
+            ),
+            SizedBox(
+              height: 9,
             ),
             Container(
               child: Row(

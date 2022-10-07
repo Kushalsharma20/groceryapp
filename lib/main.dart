@@ -16,7 +16,6 @@ void main() async {
   runApp(const MyApp());
 }
 
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -35,7 +34,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
           theme: ThemeData(),
           debugShowCheckedModeBanner: false,
-          home: Vegipay()),
+          home: HomeScreen()),
     );
   }
 }

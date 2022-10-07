@@ -4,22 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutterwave/core/flutterwave.dart';
 import 'package:flutterwave/models/responses/charge_response.dart';
 
-// void main() {
-//   runApp(flutterwaveapp());
-// }
-
-// class flutterwaveapp extends StatelessWidget {
-//   const flutterwaveapp({key});
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return MaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       home: Vegipay(),
-//     );
-//   }
-// }
-
 class Vegipay extends StatefulWidget {
   const Vegipay({key});
 
@@ -58,7 +42,10 @@ class _VegipayState extends State<Vegipay> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.yellow,
-        title: Text('VegiPayment'),
+        title: Text(
+          'VegiPayment',
+          style: TextStyle(color: Colors.black),
+        ),
       ),
       body: Stack(
         children: [
@@ -92,10 +79,11 @@ class _VegipayState extends State<Vegipay> {
                 final amount = _amount.text;
 
                 if (email.isEmpty || amount.isEmpty) {
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Fields are empty')));
+                  ScaffoldMessenger.of(context)
+                      .showSnackBar(SnackBar(content: Text('Empty fields')));
                 } else {
                   //proceed to flutterwave payment
-                  _makepayment(context,email.trim(),amount.trim());
+                  _makepayment(context, email.trim(), amount.trim());
                 }
               },
               child: Container(
@@ -105,9 +93,9 @@ class _VegipayState extends State<Vegipay> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Icon(Icons.payment),
+                    Icon(Icons.payment_outlined),
                     Text(
-                      'Make payment',
+                      'Make Payment',
                       style: TextStyle(fontSize: 20),
                     )
                   ],
@@ -133,7 +121,7 @@ class _VegipayState extends State<Vegipay> {
           fullName: "Turyasiima Crispus",
           txRef: _ref!,
           isDebugMode: true,
-          phoneNumber: "+256000000",
+          phoneNumber: "+256",
           acceptCardPayment: false,
           acceptUSSDPayment: false,
           acceptAccountPayment: false,
@@ -146,14 +134,13 @@ class _VegipayState extends State<Vegipay> {
 
       final ChargeResponse response =
           await flutterwave.initializeForUiPayments();
-     if (response == null) {
+      if (response == null) {
         print("Transaction Failed");
       } else {
         ///
         if (response.status == "success") {
           print(response.data);
           print(response.message);
-
         } else {
           print(response.message);
         }
@@ -163,4 +150,3 @@ class _VegipayState extends State<Vegipay> {
     }
   }
 }
-

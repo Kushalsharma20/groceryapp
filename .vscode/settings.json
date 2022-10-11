@@ -1,4 +1,3 @@
 {
-    "cmake.sourceDirectory": "${workspaceFolder}/linux/flutter",
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "disabled"
 }

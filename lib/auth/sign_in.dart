@@ -1,138 +1,128 @@
-import 'package:flutter/material.dart';
-import 'package:grocery_app/auth/sign_up.dart';
+// import 'dart:async';
 
-import '../screens/home_screen/home_screen.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:flutter/material.dart';
+// import 'package:flutter_signin_button/button_view.dart';
+// import 'package:flutter_signin_button/flutter_signin_button.dart';
+// import 'package:grocery_app/providers/user_provider.dart';
+// import 'package:grocery_app/screens/home/home_screen.dart';
+// import 'package:google_sign_in/google_sign_in.dart';
+// import 'package:provider/provider.dart';
 
-class SignIn extends StatefulWidget {
-  const SignIn({super.key});
+// class SignIn extends StatefulWidget {
+//   @override
+//   _SignInState createState() => _SignInState();
+// }
 
-  @override
-  State<SignIn> createState() => SignInState();
-}
+// class _SignInState extends State<SignIn> {
+//   late UserProvider userProvider;
+//   Future<User> _googleSignUp() async {
+//     try {
+//       final GoogleSignIn _googleSignIn = GoogleSignIn(
+//         scopes: ['email'],
+//       );
+//       final FirebaseAuth _auth = FirebaseAuth.instance;
 
-class SignInState extends State<SignIn> {
-  @override
-  Widget build(BuildContext context) {
-    double w = MediaQuery.of(context).size.width;
-    double h = MediaQuery.of(context).size.height;
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text("Vegi Groceries"),
-        backgroundColor: Colors.yellow,
-      ),
-      body: Container(
-        alignment: Alignment.center,
-        padding: const EdgeInsets.all(32),
-        decoration: BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("assets/authimages/sign.jpeg"),
-            fit: BoxFit.cover,
-          ),
-        ),
-        child: Center(
-          child: ListView(
-            children: [
-              Text(
-                'Welcome to Vegi groceries',
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-              SizedBox(
-                height: 100,
-              ),
-              TextField(
-                decoration: InputDecoration(
-                  hintText: 'Email',
-                  labelText: 'Email',
-                  prefixIcon: Icon(
-                    Icons.email,
-                    color: Colors.black,
-                  ),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              TextField(
-                decoration: InputDecoration(
-                  hintText: 'Password',
-                  labelText: 'Password',
-                  prefixIcon: Icon(Icons.lock, color: Colors.black),
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(30.0),
-                    borderSide: BorderSide(),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              Container(
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.yellow,
-                    foregroundColor: Colors.white,
-                    padding: EdgeInsets.symmetric(vertical: 22),
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(30)),
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HomeScreen()),
-                    );
-                  },
-                  child: Text('Log In'),
-                ),
-              ),
-              SizedBox(
-                height: 9,
-              ),
-              Container(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      'Don\'t have an account ?',
-                      style:
-                          TextStyle(fontSize: 13, fontWeight: FontWeight.w600),
-                    ),
-                    SizedBox(
-                      width: 0.2,
-                    ),
-                    TextButton(
-                      style: TextButton.styleFrom(
-                        backgroundColor: Colors.transparent,
-                        foregroundColor: Colors.black,
-                        padding: EdgeInsets.symmetric(vertical: 22),
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(8)),
-                        ),
-                      ),
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => SignUP()),
-                        );
-                      },
-                      child: Text("Create"),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 9,
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
-}
+//       final GoogleSignInAccount googleUser = await (_googleSignIn.signIn() as FutureOr<GoogleSignInAccount>);
+//       final GoogleSignInAuthentication googleAuth =
+//           await googleUser.authentication;
+
+//       final AuthCredential credential = GoogleAuthProvider.credential(
+//         accessToken: googleAuth.accessToken,
+//         idToken: googleAuth.idToken,
+//       );
+
+//       final User user = (await _auth.signInWithCredential(credential)).user!;
+//       // print("signed in " + user.displayName);
+//       userProvider.addUserData(
+//         currentUser: user,
+//         userEmail: "user.email",
+//         userImage: "user.photoURL",
+//         userName: "user.displayName",
+//       );
+
+//       return user;
+//     } catch (e) {
+//       print(e.message);
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     userProvider = Provider.of<UserProvider>(context);
+//     return Scaffold(
+//       body: Container(
+//         height: double.infinity,
+//         width: double.infinity,
+//         decoration: BoxDecoration(
+//           image: DecorationImage(
+//               fit: BoxFit.cover, image: AssetImage('assets/background.png')),
+//         ),
+//         child: Column(
+//           mainAxisAlignment: MainAxisAlignment.center,
+//           children: [
+//             Container(
+//               height: 400,
+//               width: double.infinity,
+//               child: Column(
+//                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//                 children: [
+//                   Text('Sign in to contunue'),
+//                   Text(
+//                     'Vegi',
+//                     style:
+//                         TextStyle(fontSize: 50, color: Colors.white, shadows: [
+//                       BoxShadow(
+//                         blurRadius: 5,
+//                         color: Colors.green.shade900,
+//                         offset: Offset(3, 3),
+//                       )
+//                     ]),
+//                   ),
+//                   Column(
+//                     children: [
+//                       SignInButton(
+//                         Buttons.Apple,
+//                         text: "Sign in with Apple",
+//                         onPressed: () {},
+//                       ),
+//                       SignInButton(
+//                         Buttons.Google,
+//                         text: "Sign in with Google",
+//                         onPressed: () async {
+//                           await _googleSignUp().then(
+//                             (value) => Navigator.of(context).pushReplacement(
+//                               MaterialPageRoute(
+//                                 builder: (context) => HomeScreen(),
+//                               ),
+//                             ),
+//                           );
+//                         },
+//                       ),
+//                     ],
+//                   ),
+//                   Column(
+//                     children: [
+//                       Text(
+//                         'By signing in you are agreeing to our',
+//                         style: TextStyle(
+//                           color: Colors.grey[800],
+//                         ),
+//                       ),
+//                       Text(
+//                         'Terms and Pricacy Policy',
+//                         style: TextStyle(
+//                           color: Colors.grey[800],
+//                         ),
+//                       ),
+//                     ],
+//                   ),
+//                 ],
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//   }
+// }

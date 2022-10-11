@@ -25,7 +25,10 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -45,7 +48,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyBxXfAdMOZaIQjynwOZ_LvaBNsX0ljc1HE',
-    appId: '1:835773619895:web:3cf42a8d0f9dbb9b69b732',
+    appId: '1:835773619895:web:463b336d54d2179f69b732',
     messagingSenderId: '835773619895',
     projectId: 'vegi-eda38',
     authDomain: 'vegi-eda38.firebaseapp.com',
@@ -54,7 +57,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBgnmEnCBTbtD-pOWqfSvsV6c4M_Mhxv8c',
-    appId: '1:835773619895:android:595376efeb0054b269b732',
+    appId: '1:835773619895:android:2306a2e26250bce969b732',
     messagingSenderId: '835773619895',
     projectId: 'vegi-eda38',
     storageBucket: 'vegi-eda38.appspot.com',
@@ -62,21 +65,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyDdbUL3dcVGZWG5e7IspmIZso1JpRA4s7I',
-    appId: '1:835773619895:ios:bdcfa8a887fb2a1469b732',
+    appId: '1:835773619895:ios:0a4466f67ee74de969b732',
     messagingSenderId: '835773619895',
     projectId: 'vegi-eda38',
     storageBucket: 'vegi-eda38.appspot.com',
-    iosClientId: '835773619895-13d86ular9ssstskfjhhrod7s1qj84ff.apps.googleusercontent.com',
-    iosBundleId: 'com.example.groceryApp',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyDdbUL3dcVGZWG5e7IspmIZso1JpRA4s7I',
-    appId: '1:835773619895:ios:bdcfa8a887fb2a1469b732',
-    messagingSenderId: '835773619895',
-    projectId: 'vegi-eda38',
-    storageBucket: 'vegi-eda38.appspot.com',
-    iosClientId: '835773619895-13d86ular9ssstskfjhhrod7s1qj84ff.apps.googleusercontent.com',
-    iosBundleId: 'com.example.groceryApp',
+    iosClientId: '835773619895-dkvgukeebmunoem1jggdasp31b2fq9uk.apps.googleusercontent.com',
+    iosBundleId: 'com.example.foodApp',
   );
 }

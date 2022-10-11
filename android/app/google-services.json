@@ -40,6 +40,42 @@
           ]
         }
       }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:835773619895:android:04407a97df13f95169b732",
+        "android_client_info": {
+          "package_name": "com.example.my_grocery_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "835773619895-8341tj1slbsfrlsfllnlr9cuarghqlli.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgnmEnCBTbtD-pOWqfSvsV6c4M_Mhxv8c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "835773619895-8341tj1slbsfrlsfllnlr9cuarghqlli.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "835773619895-13d86ular9ssstskfjhhrod7s1qj84ff.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.groceryApp"
+              }
+            }
+          ]
+        }
+      }
     }
   ],
   "configuration_version": "1"

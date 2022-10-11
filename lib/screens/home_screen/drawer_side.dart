@@ -88,10 +88,8 @@ class DrawerSide extends StatelessWidget {
                   leading: Icon(Icons.shop_outlined),
                   title: Text("Review", textDirection: TextDirection.ltr),
                   onTap: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const ReviewCart()));
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => ReviewCart()));
                   }),
               ListTile(
                   leading: Icon(Icons.person_outline),

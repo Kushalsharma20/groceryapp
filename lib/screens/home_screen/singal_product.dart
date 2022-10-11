@@ -13,8 +13,8 @@ class SingalProduct extends StatelessWidget {
   SingalProduct({
     required this.productImage,
     required this.productName,
-    required this.onTap,
     required this.productPrice,
+    required this.onTap,
   });
 
   @override

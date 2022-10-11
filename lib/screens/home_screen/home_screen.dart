@@ -7,6 +7,8 @@ import 'package:grocery_app/screens/product_overview/product_overview.dart';
 import 'package:grocery_app/screens/search/search.dart';
 import 'package:provider/provider.dart';
 
+import '../review _cart/review_cart.dart';
+
 class HomeScreen extends StatefulWidget {
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -169,7 +171,14 @@ class _HomeScreenState extends State<HomeScreen> {
             backgroundColor: Colors.transparent,
             radius: 12,
             child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) =>
+                          Search(search: productProvider.gerAllProductSearch),
+                    ),
+                  );
+                },
                 icon: Icon(
                   Icons.search,
                   size: 17,
@@ -178,16 +187,25 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 5),
-            child: CircleAvatar(
-              backgroundColor: Colors.transparent,
-              radius: 12,
-              child: Icon(
-                Icons.shop,
-                size: 17,
-                color: textColor,
+            child: GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => ReviewCart(),
+                  ),
+                );
+              },
+              child: CircleAvatar(
+                backgroundColor: Colors.transparent,
+                radius: 12,
+                child: Icon(
+                  Icons.shopping_cart_checkout,
+                  size: 17,
+                  color: textColor,
+                ),
               ),
             ),
-          ),
+          )
         ],
       ),
       body: Padding(

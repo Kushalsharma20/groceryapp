@@ -61,10 +61,12 @@ class _SearchState extends State<Search> {
             Column(
               children: _searchItem.map((data) {
                 return SingleItem(
-                  isBool: true,
+                  isBool: false,
                   productImage: data.productImage,
                   productName: data.productName,
                   productPrice: data.productPrice,
+                  //  onDelete: data,
+                  // wishList: false
                 );
               }).toList(),
             ),

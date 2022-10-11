@@ -3,8 +3,21 @@ import 'package:flutter/cupertino.dart';
 import 'package:grocery_app/models/product_model.dart';
 
 class ProductProvider with ChangeNotifier {
-  List<ProductModel> herbsProductList = [];
   late ProductModel productModel;
+
+  List<ProductModel> search = [];
+  productModels(QueryDocumentSnapshot element) {
+    productModel = ProductModel(
+      productImage: element.get("productImage"),
+      productName: element.get("productName"),
+      productPrice: element.get("productPrice"),
+    );
+    search.add(productModel);
+  }
+
+  //herbs
+  List<ProductModel> herbsProductList = [];
+
   fatchHerbsProductData() async {
     List<ProductModel> newList = [];
 
@@ -12,10 +25,7 @@ class ProductProvider with ChangeNotifier {
         await FirebaseFirestore.instance.collection("HerbsProduct").get();
     value.docs.forEach(
       (element) {
-        productModel = ProductModel(
-            productImage: element.get("productImage"),
-            productName: element.get("productName"),
-            productPrice: element.get("productPrice"));
+        productModels(element);
         newList.add(productModel);
       },
     );
@@ -25,5 +35,10 @@ class ProductProvider with ChangeNotifier {
 
   List<ProductModel> get getHerbsProductDataList {
     return herbsProductList;
+  }
+
+  ////Search products////
+  List<ProductModel> get gerAllProductSearch {
+    return search;
   }
 }

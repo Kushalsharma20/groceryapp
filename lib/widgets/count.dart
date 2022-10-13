@@ -59,8 +59,9 @@ class _CountState extends State<Count> {
       height: 50,
       width: 100,
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey),
-        borderRadius: BorderRadius.circular(8),
+        //border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.circular(30),
+        color: primaryColor,
       ),
       child: isTrue == true
           ? Row(
@@ -89,7 +90,7 @@ class _CountState extends State<Count> {
                   child: Icon(
                     Icons.remove,
                     size: 30,
-                    color: Color(0xffd0b84c),
+                    color: Colors.black54,
                   ),
                 ),
                 SizedBox(
@@ -98,7 +99,7 @@ class _CountState extends State<Count> {
                 Text(
                   "$count",
                   style: TextStyle(
-                    color: Color(0xffd0b84c),
+                    color: Colors.black54,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -121,7 +122,7 @@ class _CountState extends State<Count> {
                   child: Icon(
                     Icons.add,
                     size: 30,
-                    color: Color(0xffd0b84c),
+                    color: Colors.black54,
                   ),
                 ),
               ],
@@ -133,6 +134,7 @@ class _CountState extends State<Count> {
                     isTrue = true;
                   });
                   reviewCartProvider.addReviewCartData(
+                      context: context,
                       cartId: widget.productId,
                       cartImage: widget.productImage,
                       cartName: widget.productName,
@@ -142,7 +144,7 @@ class _CountState extends State<Count> {
                 },
                 child: Text(
                   "ADD",
-                  style: TextStyle(color: primaryColor),
+                  style: TextStyle(color: Colors.black87),
                 ),
               ),
             ),

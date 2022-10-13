@@ -4,11 +4,15 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery_app/config/colors.dart';
+import 'package:grocery_app/controllers/cart_controller.dart';
+import 'package:grocery_app/models/cart_model.dart';
 import 'package:grocery_app/models/review_cart_model.dart';
 import 'package:grocery_app/providers/wishlist_provider.dart';
 import 'package:grocery_app/screens/review_cart/review_cart.dart';
 import 'package:grocery_app/widgets/count.dart';
 import 'package:provider/provider.dart';
+
+import '../../providers/review_cart_provider.dart';
 
 enum SinginCharacter { fill, outline }
 
@@ -96,6 +100,7 @@ class _ProductOverviewState extends State<ProductOverview> {
   Widget build(BuildContext context) {
     // WishListProvider wishListProvider = Provider.of(context);
     // getWishtListBool();
+    ReviewCartProvider cartProvider = Provider.of(context);
     return Scaffold(
       bottomNavigationBar: Row(
         children: [
@@ -130,15 +135,21 @@ class _ProductOverviewState extends State<ProductOverview> {
               title: "Go To Cart",
               iconData: Icons.shop_outlined,
               onTap: () {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => ReviewCart(),
-                  ),
-                );
+                print("started to add");
+                cartProvider.addReviewCartData(
+                    context: context,
+                    cartId: widget.productId,
+                    cartName: widget.productImage,
+                    cartImage: widget.productImage,
+                    cartPrice: widget.productPrice,
+                    cartQuantity: widget.productQuantity,
+                    cartUnit: widget.productQuantity);
+                print("finished to add");
               }),
         ],
       ),
       appBar: AppBar(
+        backgroundColor: primaryColor,
         iconTheme: IconThemeData(color: textColor),
         title: Text(
           "Product Overview",

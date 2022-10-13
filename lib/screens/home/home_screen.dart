@@ -225,6 +225,7 @@ class _HomeScreenState extends State<HomeScreen> {
         userProvider: userProvider,
       ),
       appBar: AppBar(
+        backgroundColor: primaryColor,
         iconTheme: IconThemeData(color: textColor),
         title: Text(
           'Home',

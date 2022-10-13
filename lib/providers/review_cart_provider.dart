@@ -1,7 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:grocery_app/models/review_cart_model.dart';
+import 'package:grocery_app/screens/review_cart/review_cart.dart';
 
 class ReviewCartProvider with ChangeNotifier {
   void addReviewCartData({
@@ -10,11 +12,13 @@ class ReviewCartProvider with ChangeNotifier {
     required String cartImage,
     required int cartPrice,
     required int cartQuantity,
-     var  cartUnit,
+    var cartUnit,
+    required BuildContext context,
   }) async {
+    print("started to create collection");
     FirebaseFirestore.instance
         .collection("ReviewCart")
-        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .doc(FirebaseAuth.instance.currentUser?.uid)
         .collection("YourReviewCart")
         .doc(cartId)
         .set(
@@ -27,7 +31,11 @@ class ReviewCartProvider with ChangeNotifier {
         "cartUnit": cartUnit,
         "isAdd": true,
       },
-    );
+    ).then((value) => Navigator.of(context).push(
+              MaterialPageRoute(
+                builder: (context) => ReviewCart(),
+              ),
+            ));
   }
 
   void updateReviewCartData({

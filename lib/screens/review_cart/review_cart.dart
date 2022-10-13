@@ -50,7 +50,7 @@ class ReviewCart extends StatelessWidget {
     reviewCartProvider.getReviewCartData();
     return Scaffold(
       bottomNavigationBar: ListTile(
-        title: Text("Total Aount"),
+        title: Text("Total AMount"),
         subtitle: Text(
           "\$ ${reviewCartProvider.getTotalPrice()}",
           style: TextStyle(

@@ -60,17 +60,17 @@ class _DrawerSideState extends State<DrawerSide> {
                     SizedBox(
                       width: 20,
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(userData.userName),
-                        Text(
-                          userData.userEmail,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                      ],
-                    )
+                    // Column(
+                    //   crossAxisAlignment: CrossAxisAlignment.start,
+                    //   mainAxisAlignment: MainAxisAlignment.center,
+                    //   children: [
+                    //     Text(userData.userName),
+                    //     Text(
+                    //       userData.userEmail,
+                    //       overflow: TextOverflow.ellipsis,
+                    //     ),
+                    //   ],
+                    // )
                   ],
                 ),
               ),

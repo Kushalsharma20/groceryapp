@@ -30,7 +30,7 @@ class _MyProfileState extends State<MyProfile> {
   }
 
   Widget build(BuildContext context) {
-    var userData = widget.userProvider.currentUserData;
+    //var userData = widget.userProvider.currentUserData;
 
     return Scaffold(
       backgroundColor: primaryColor,
@@ -44,9 +44,9 @@ class _MyProfileState extends State<MyProfile> {
           ),
         ),
       ),
-      drawer: DrawerSide(
-        userProvider: widget.userProvider,
-      ),
+      // drawer: DrawerSide(
+      //   //userProvider: widget.userProvider,
+      // ),
       body: Stack(
         children: [
           Column(
@@ -81,19 +81,19 @@ class _MyProfileState extends State<MyProfile> {
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    userData.userName,
-                                    style: TextStyle(
-                                        fontSize: 14,
-                                        fontWeight: FontWeight.bold,
-                                        color: textColor),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(userData.userEmail),
-                                ],
+                                // children: [
+                                //   Text(
+                                //     userData.userName,
+                                //     style: TextStyle(
+                                //         fontSize: 14,
+                                //         fontWeight: FontWeight.bold,
+                                //         color: textColor),
+                                //   ),
+                                //   SizedBox(
+                                //     height: 10,
+                                //   ),
+                                //   Text(userData.userEmail),
+                                // ],
                               ),
                               CircleAvatar(
                                 radius: 15,

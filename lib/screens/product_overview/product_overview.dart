@@ -229,34 +229,34 @@ class _ProductOverviewState extends State<ProductOverview> {
                             productPrice: widget.productPrice,
                             productQuantity: widget.productQuantity,
                           ),
-                          // Container(
-                          //   padding: EdgeInsets.symmetric(
-                          //     horizontal: 30,
-                          //     vertical: 10,
-                          //   ),
-                          //   decoration: BoxDecoration(
-                          //     border: Border.all(
-                          //       color: Colors.grey,
-                          //     ),
-                          //     borderRadius: BorderRadius.circular(
-                          //       30,
-                          //     ),
-                          //   ),
-                          //   child: Row(
-                          //     mainAxisAlignment: MainAxisAlignment.center,
-                          //     children: [
-                          //       Icon(
-                          //         Icons.add,
-                          //         size: 17,
-                          //         color: primaryColor,
-                          //       ),
-                          //       Text(
-                          //         "ADD",
-                          //         style: TextStyle(color: primaryColor),
-                          //       )
-                          //     ],
-                          //   ),
-                          // ),
+                          Container(
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 30,
+                              vertical: 10,
+                            ),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.grey,
+                              ),
+                              borderRadius: BorderRadius.circular(
+                                30,
+                              ),
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.add,
+                                  size: 17,
+                                  color: primaryColor,
+                                ),
+                                Text(
+                                  "ADD",
+                                  style: TextStyle(color: primaryColor),
+                                )
+                              ],
+                            ),
+                          ),
                         ],
                       ),
                     ),

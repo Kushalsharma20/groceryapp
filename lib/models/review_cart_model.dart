@@ -5,6 +5,7 @@ class ReviewCartModel {
   int cartPrice;
   int cartQuantity;
   var cartUnit;
+  bool? isAdd;
   ReviewCartModel({
     required this.cartId,
     required this.cartUnit,
@@ -12,5 +13,6 @@ class ReviewCartModel {
     required this.cartName,
     required this.cartPrice,
     required this.cartQuantity,
+    this.isAdd
   });
 }

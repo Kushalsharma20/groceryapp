@@ -15,7 +15,6 @@ class ReviewCartProvider with ChangeNotifier {
     var cartUnit,
     required BuildContext context,
   }) async {
-    print("started to create collection");
     FirebaseFirestore.instance
         .collection("ReviewCart")
         .doc(FirebaseAuth.instance.currentUser?.uid)
@@ -63,7 +62,8 @@ class ReviewCartProvider with ChangeNotifier {
   }
 
   List<ReviewCartModel> reviewCartDataList = [];
-  void getReviewCartData() async {
+
+  getReviewCartData() async {
     List<ReviewCartModel> newList = [];
 
     QuerySnapshot reviewCartValue = await FirebaseFirestore.instance
@@ -71,22 +71,40 @@ class ReviewCartProvider with ChangeNotifier {
         .doc(FirebaseAuth.instance.currentUser?.uid)
         .collection("YourReviewCart")
         .get();
+    print("data received");
+      print(reviewCartValue.docs.length);
     reviewCartValue.docs.forEach((element) {
-      ReviewCartModel reviewCartModel = ReviewCartModel(
-        cartId: element.get("cartId"),
-        cartImage: element.get("cartImage"),
-        cartName: element.get("cartName"),
-        cartPrice: element.get("cartPrice"),
-        cartQuantity: element.get("cartQuantity"),
-        cartUnit: element.get("cartUnit"),
-      );
-      newList.add(reviewCartModel);
+      // ReviewCartModel reviewCartModel = ReviewCartModel(
+      //     cartId: element.get("cartId"),
+      //     cartImage: element.get("cartImage"),
+      //     cartName: element.get("cartName"),
+      //     cartPrice: element.get("cartPrice"),
+      //     cartQuantity: element.get("cartQuantity"),
+      //     cartUnit: element.get("cartUnit"),
+      //     isAdd: element.get("isAdd"));
+      // print("add added to cart model");
+      // print(reviewCartDataList[0].cartId);
+      // print(reviewCartDataList[0].cartName);
+      newList.addAll([
+        ReviewCartModel(
+            cartId: element.get("cartId"), 
+            cartImage: element.get("cartImage"),
+            cartName: element.get("cartName"),
+            cartPrice: element.get("cartPrice"),
+            cartQuantity: element.get("cartQuantity"),
+            cartUnit: element.get("cartUnit"))
+      ]);
+      print(newList.length);
     });
+    print("add data to cart model");
     reviewCartDataList = newList;
+    print(reviewCartDataList);
     notifyListeners();
   }
 
   List<ReviewCartModel> get getReviewCartDataList {
+    print(reviewCartDataList);
+    print(reviewCartDataList.length);
     return reviewCartDataList;
   }
 

@@ -1,13 +1,13 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:grocery_app/authgate.dart';
 import 'package:grocery_app/config/colors.dart';
 import 'package:grocery_app/providers/check_out_provider.dart';
 import 'package:grocery_app/providers/product_provider.dart';
 import 'package:grocery_app/providers/review_cart_provider.dart';
 import 'package:grocery_app/providers/user_provider.dart';
 import 'package:grocery_app/providers/wishlist_provider.dart';
-import 'package:grocery_app/screens/home/home_screen.dart';
 import 'package:provider/provider.dart';
 import 'firebase_options.dart';
 
@@ -48,9 +48,9 @@ class MyApp extends StatelessWidget {
           stream: FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapShot) {
             if (snapShot.hasData) {
-              return HomeScreen();
+              return AuthGate();
             }
-            return HomeScreen();
+            return AuthGate();
           },
         ),
       ),

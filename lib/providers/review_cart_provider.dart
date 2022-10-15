@@ -15,10 +15,10 @@ class ReviewCartProvider with ChangeNotifier {
     required BuildContext context,
   }) async {
     FirebaseFirestore.instance
-        .collection("ReviewCart")
-        .doc(FirebaseAuth.instance.currentUser?.uid)
         .collection("YourReviewCart")
-        .doc(cartId)
+        .doc(FirebaseAuth.instance.currentUser?.uid)
+        // .collection("YourReviewCart")
+        // .doc(cartId)
         .set(
       {
         "cartId": cartId,
@@ -65,13 +65,14 @@ class ReviewCartProvider with ChangeNotifier {
   getReviewCartData() async {
     List<ReviewCartModel> newList = [];
 
-    QuerySnapshot reviewCartValue = await FirebaseFirestore.instance
-        .collection("ReviewCart")
-        .doc(FirebaseAuth.instance.currentUser?.uid)
+    QuerySnapshot reviewCartValue = (await FirebaseFirestore.instance
         .collection("YourReviewCart")
-        .get();
+        .doc(FirebaseAuth.instance.currentUser?.uid)
+        .get()) as QuerySnapshot<Object?>;
+    // .collection("YourReviewCart")
+    // .get();
     print("data received");
-      print(reviewCartValue.docs.length);
+    print(reviewCartValue.docs.length);
     reviewCartValue.docs.forEach((element) {
       // ReviewCartModel reviewCartModel = ReviewCartModel(
       //     cartId: element.get("cartId"),
@@ -86,7 +87,7 @@ class ReviewCartProvider with ChangeNotifier {
       // print(reviewCartDataList[0].cartName);
       newList.addAll([
         ReviewCartModel(
-            cartId: element.get("cartId"), 
+            cartId: element.get("cartId"),
             cartImage: element.get("cartImage"),
             cartName: element.get("cartName"),
             cartPrice: element.get("cartPrice"),

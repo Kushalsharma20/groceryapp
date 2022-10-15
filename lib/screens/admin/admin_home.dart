@@ -15,6 +15,7 @@ class AdminHome extends StatefulWidget {
 class _AdminHomeState extends State<AdminHome> {
   @override
   Widget build(BuildContext context) {
+    adminCntrler.fetchHerbsProductData();
     return Scaffold(
       body: Center(
         child: SingleChildScrollView(

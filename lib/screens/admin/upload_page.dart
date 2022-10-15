@@ -68,31 +68,29 @@ class _AdminUploadState extends State<AdminUpload> {
                   hint: "Quantity of a product",
                   icon: Icons.production_quantity_limits,
                   onChanged: (String value) {
-                    setState(() {});
+                    setState(() {
+                      adminCntrler.changeQuantity(value);
+                    });
                   },
                 ),
                 GetBuilder<AdminController>(
-                  init: AdminController(),
-                  builder: (admin) {
-                    return RoundedButton(
-                        text: "Upload Product",
-                        press: () {
-                          if (formkey.currentState!.validate()) {
-                            requestBlood(
-                              admin.imageIink,
-                              admin.productName,
-                              admin.productPrice,
-                              admin.productQty
-                            );
-                            Navigator.of(context).pushAndRemoveUntil(
-                                MaterialPageRoute(
-                                    builder: ((context) => const AdminHome())),
-                                (route) => true);
-                          }
-                        },
-                        color: Colors.red);
-                  }
-                ),
+                    init: AdminController(),
+                    builder: (admin) {
+                      return RoundedButton(
+                          text: "Upload Product",
+                          press: () {
+                            if (formkey.currentState!.validate()) {
+                              requestBlood(admin.imageIink, admin.productName,
+                                  admin.productPrice, admin.productQty);
+                              Navigator.of(context).pushAndRemoveUntil(
+                                  MaterialPageRoute(
+                                      builder: ((context) =>
+                                          const AdminHome())),
+                                  (route) => true);
+                            }
+                          },
+                          color: Colors.red);
+                    }),
                 SizedBox(
                   height: size.height * 0.02,
                 )

@@ -68,7 +68,7 @@ class ReviewCartProvider with ChangeNotifier {
     QuerySnapshot reviewCartValue = (await FirebaseFirestore.instance
         .collection("YourReviewCart")
         .doc(FirebaseAuth.instance.currentUser?.uid)
-        .get()) as QuerySnapshot<Object?>;
+        .get()) as QuerySnapshot<ReviewCartModel?>;
     // .collection("YourReviewCart")
     // .get();
     print("data received");

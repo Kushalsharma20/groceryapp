@@ -61,7 +61,7 @@ class _CountState extends State<Count> {
       decoration: BoxDecoration(
         //border: Border.all(color: Colors.grey),
         borderRadius: BorderRadius.circular(30),
-        color: primaryColor,
+        color: Color.fromRGBO(254, 226, 204, 1),
       ),
       child: isTrue == true
           ? Row(
@@ -117,6 +117,7 @@ class _CountState extends State<Count> {
                       cartName: widget.productName,
                       cartPrice: widget.productPrice,
                       cartQuantity: count,
+                      
                     );
                   },
                   child: Icon(

@@ -60,8 +60,8 @@ class ReviewCart extends StatelessWidget {
         trailing: Container(
           width: 160,
           child: MaterialButton(
-            child: Text("Submit"),
-            color: primaryColor,
+            child: Text("Checkout"),
+            color: Color.fromRGBO(254, 226, 204, 1),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(
                 30,
@@ -79,6 +79,7 @@ class ReviewCart extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(254, 226, 204, 1),
         title: Text(
           "Review Cart",
           style: TextStyle(color: textColor, fontSize: 18),

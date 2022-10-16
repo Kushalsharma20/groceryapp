@@ -129,9 +129,9 @@ class _ProductOverviewState extends State<ProductOverview> {
                 // }
               }),
           bonntonNavigatorBar(
-              backgroundColor: primaryColor,
+              backgroundColor: Color.fromRGBO(254, 226, 204, 1),
               color: textColor,
-              iconColor: Colors.white70,
+              iconColor: Colors.black45,
               title: "Go To Cart",
               iconData: Icons.shop_outlined,
               onTap: () {
@@ -149,7 +149,7 @@ class _ProductOverviewState extends State<ProductOverview> {
         ],
       ),
       appBar: AppBar(
-        backgroundColor: primaryColor,
+        backgroundColor: Color.fromRGBO(254, 226, 204, 1),
         iconTheme: IconThemeData(color: textColor),
         title: Text(
           "Product Overview",
@@ -168,7 +168,8 @@ class _ProductOverviewState extends State<ProductOverview> {
                       title: Text(widget.productName),
                       subtitle: Text(
                         widget.productPrice.toString(),
-                        style: TextStyle(color: Colors.green),
+                        style:
+                            TextStyle(color: Color.fromRGBO(254, 226, 204, 1)),
                       ),
                     ),
                     Container(
@@ -200,12 +201,13 @@ class _ProductOverviewState extends State<ProductOverview> {
                             children: [
                               CircleAvatar(
                                 radius: 3,
-                                backgroundColor: Colors.green[700],
+                                backgroundColor:
+                                    Color.fromRGBO(254, 226, 204, 1),
                               ),
                               Radio(
                                 value: SinginCharacter.fill,
                                 groupValue: _character,
-                                activeColor: Colors.green[700],
+                                activeColor: Color.fromRGBO(254, 226, 204, 1),
                                 onChanged: (dynamic value) {
                                   setState(() {
                                     _character = value;
@@ -229,34 +231,34 @@ class _ProductOverviewState extends State<ProductOverview> {
                             productPrice: widget.productPrice,
                             productQuantity: widget.productQuantity,
                           ),
-                          Container(
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 30,
-                              vertical: 10,
-                            ),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.grey,
-                              ),
-                              borderRadius: BorderRadius.circular(
-                                30,
-                              ),
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.add,
-                                  size: 17,
-                                  color: primaryColor,
-                                ),
-                                Text(
-                                  "ADD",
-                                  style: TextStyle(color: primaryColor),
-                                )
-                              ],
-                            ),
-                          ),
+                          // Container(
+                          //   padding: EdgeInsets.symmetric(
+                          //     horizontal: 30,
+                          //     vertical: 10,
+                          //   ),
+                          //   decoration: BoxDecoration(
+                          //     border: Border.all(
+                          //       color: Colors.grey,
+                          //     ),
+                          //     borderRadius: BorderRadius.circular(
+                          //       30,
+                          //     ),
+                          //   ),
+                          //   child: Row(
+                          //     mainAxisAlignment: MainAxisAlignment.center,
+                          //     children: [
+                          //       Icon(
+                          //         Icons.add,
+                          //         size: 17,
+                          //         color: primaryColor,
+                          //       ),
+                          //       Text(
+                          //         "ADD",
+                          //         style: TextStyle(color: primaryColor),
+                          //       )
+                          //     ],
+                          //   ),
+                          // ),
                         ],
                       ),
                     ),

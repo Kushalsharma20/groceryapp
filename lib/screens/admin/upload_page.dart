@@ -57,7 +57,7 @@ class _AdminUploadState extends State<AdminUpload> {
                   label: "Product Price",
                   hint: "Price of product",
                   icon: Icons.money,
-                  onChanged: (String value) {
+                  onChanged: (var value) {
                     setState(() {
                       adminCntrler.changePrice(value);
                     });
@@ -67,7 +67,7 @@ class _AdminUploadState extends State<AdminUpload> {
                   label: "Product Quantity",
                   hint: "Quantity of a product",
                   icon: Icons.production_quantity_limits,
-                  onChanged: (String value) {
+                  onChanged: (var value) {
                     setState(() {
                       adminCntrler.changeQuantity(value);
                     });

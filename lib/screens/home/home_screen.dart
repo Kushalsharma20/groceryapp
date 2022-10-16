@@ -22,7 +22,44 @@ class _HomeScreenState extends State<HomeScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20),
+          padding: const EdgeInsetsDirectional.only(top: 8),
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsetsDirectional.only(
+                    top: 4,
+                    bottom: 4,
+                    start: 4,
+                    end: MediaQuery.of(context).size.width * .7),
+                width: double.infinity,
+                color: Color.fromRGBO(254, 226, 204, 1),
+                child: FittedBox(
+                  child: Column(
+                    children: [
+                      Text(
+                        "Up to 30% Off",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        textAlign: TextAlign.start,
+                      ),
+                      Text(
+                        "On all vegetable products",
+                        style: TextStyle(
+                          fontSize: 10,
+                        ),
+                        textAlign: TextAlign.start,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsetsDirectional.only(top: 8),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -87,6 +124,43 @@ class _HomeScreenState extends State<HomeScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
+          padding: const EdgeInsetsDirectional.only(top: 8),
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsetsDirectional.only(
+                    top: 4,
+                    bottom: 4,
+                    start: 4,
+                    end: MediaQuery.of(context).size.width * .7),
+                width: double.infinity,
+                color: Color.fromRGBO(254, 226, 204, 1),
+                child: FittedBox(
+                  child: Column(
+                    children: [
+                      Text(
+                        "Up to 30% Off",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        textAlign: TextAlign.start,
+                      ),
+                      Text(
+                        "On all vegetable products",
+                        style: TextStyle(
+                          fontSize: 10,
+                        ),
+                        textAlign: TextAlign.start,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+        Padding(
           padding: const EdgeInsets.symmetric(vertical: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -148,6 +222,43 @@ class _HomeScreenState extends State<HomeScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        Padding(
+          padding: const EdgeInsetsDirectional.only(top: 8),
+          child: Column(
+            children: [
+              Container(
+                padding: EdgeInsetsDirectional.only(
+                    top: 4,
+                    bottom: 4,
+                    start: 4,
+                    end: MediaQuery.of(context).size.width * .7),
+                width: double.infinity,
+                color: Color.fromRGBO(254, 226, 204, 1),
+                child: FittedBox(
+                  child: Column(
+                    children: [
+                      Text(
+                        "Up to 30% Off",
+                        style: TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w500,
+                        ),
+                        textAlign: TextAlign.start,
+                      ),
+                      Text(
+                        "On all vegetable products",
+                        style: TextStyle(
+                          fontSize: 10,
+                        ),
+                        textAlign: TextAlign.start,
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 20),
           child: Row(
@@ -220,16 +331,18 @@ class _HomeScreenState extends State<HomeScreen> {
     productProvider = Provider.of(context);
     UserProvider userProvider = Provider.of(context);
     userProvider.getUserData();
+    int btmSelectedIndex = 0;
+    //List screens = [Home(), Categories(), Cart(), UserScreen()];
     return Scaffold(
       drawer: DrawerSide(
         userProvider: userProvider,
       ),
       appBar: AppBar(
-        backgroundColor: primaryColor,
-        iconTheme: IconThemeData(color: textColor),
-        title: Text(
-          'Home',
-          style: TextStyle(color: textColor, fontSize: 17),
+        elevation: 0,
+        backgroundColor: Color.fromRGBO(254, 226, 204, 1),
+        title: const Text(
+          "Home",
+          style: TextStyle(color: Colors.black),
         ),
         actions: [
           CircleAvatar(
@@ -274,6 +387,72 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
+      bottomNavigationBar: BottomNavigationBar(
+        currentIndex: btmSelectedIndex,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.format_list_bulleted_outlined),
+              label: "Categories"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart_checkout), label: "Cart"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.person_outline), label: "Account"),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.help_outline), label: "Help"),
+        ],
+      ),
+
+      // appBar: AppBar(
+      //   backgroundColor: Colors.redAccent,
+      //   iconTheme: IconThemeData(color: textColor),
+      //   title: Text(
+      //     'Home',
+      //     style: TextStyle(color: textColor, fontSize: 17),
+      //   ),
+      //   actions: [
+      //     CircleAvatar(
+      //       radius: 15,
+      //       backgroundColor: Color(0xffd6d382),
+      //       child: IconButton(
+      //         onPressed: () {
+      //           Navigator.of(context).push(
+      //             MaterialPageRoute(
+      //               builder: (context) =>
+      //                   Search(search: productProvider.getAllProductSearch),
+      //             ),
+      //           );
+      //         },
+      //         icon: Icon(
+      //           Icons.search,
+      //           size: 17,
+      //           color: textColor,
+      //         ),
+      //       ),
+      //     ),
+      //     Padding(
+      //       padding: const EdgeInsets.symmetric(horizontal: 5),
+      //       child: GestureDetector(
+      //         onTap: () {
+      //           Navigator.of(context).push(
+      //             MaterialPageRoute(
+      //               builder: (context) => ReviewCart(),
+      //             ),
+      //           );
+      //         },
+      //         child: CircleAvatar(
+      //           backgroundColor: Color(0xffd6d382),
+      //           radius: 15,
+      //           child: Icon(
+      //             Icons.shop,
+      //             size: 17,
+      //             color: textColor,
+      //           ),
+      //         ),
+      //       ),
+      //     ),
+      //   ],
+      // ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         child: ListView(
@@ -283,8 +462,7 @@ class _HomeScreenState extends State<HomeScreen> {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: NetworkImage(
-                      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQi0Xg-k622Sbztlrb-L1o1CAla3zCbVc2lUw&usqp=CAU'),
+                  image: AssetImage('assets/groc.jpg'),
                 ),
                 color: Colors.red,
                 borderRadius: BorderRadius.circular(10),
@@ -303,7 +481,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 50,
                               width: 100,
                               decoration: BoxDecoration(
-                                color: Color(0xffd1ad17),
+                                color: Colors.green,
                                 borderRadius: BorderRadius.only(
                                   bottomRight: Radius.circular(50),
                                   bottomLeft: Radius.circular(50),
@@ -326,22 +504,22 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                           ),
-                          Text(
-                            '30% Off',
-                            style: TextStyle(
-                                fontSize: 40,
-                                color: Colors.green[100],
-                                fontWeight: FontWeight.bold),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.only(left: 20),
-                            child: Text(
-                              'On all vegetables products',
-                              style: TextStyle(
-                                color: Colors.white,
-                              ),
-                            ),
-                          ),
+                          // Text(
+                          //   '30% Off',
+                          //   style: TextStyle(
+                          //       fontSize: 40,
+                          //       color: Colors.black,
+                          //       fontWeight: FontWeight.bold),
+                          // ),
+                          // Padding(
+                          //   padding: const EdgeInsets.only(left: 20),
+                          //   child: Text(
+                          //     'On all vegetables products',
+                          //     style: TextStyle(
+                          //       color: Colors.white,
+                          //     ),
+                          //   ),
+                          // ),
                         ],
                       ),
                     ),

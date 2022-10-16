@@ -39,7 +39,7 @@ class _DrawerSideState extends State<DrawerSide> {
     var userData;
     return Drawer(
       child: Container(
-        color: primaryColor,
+        color: Color.fromRGBO(254, 226, 204, 1),
         child: ListView(
           children: [
             DrawerHeader(

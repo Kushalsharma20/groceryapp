@@ -33,8 +33,9 @@ class _MyProfileState extends State<MyProfile> {
     //var userData = widget.userProvider.currentUserData;
 
     return Scaffold(
-      backgroundColor: primaryColor,
+      backgroundColor: Color.fromARGB(255, 143, 197, 174),
       appBar: AppBar(
+        backgroundColor: Color.fromRGBO(254, 226, 204, 1),
         elevation: 0.0,
         title: Text(
           "My Profile",
@@ -53,14 +54,14 @@ class _MyProfileState extends State<MyProfile> {
             children: [
               Container(
                 height: 100,
-                color: primaryColor,
+                color: Color.fromARGB(255, 143, 197, 174),
               ),
               Container(
                 height: 548,
                 width: double.infinity,
                 padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
                 decoration: BoxDecoration(
-                  color: scaffoldBackgroundColor,
+                  color: Color.fromRGBO(254, 226, 204, 1),
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(30),
                     topRight: Radius.circular(30),
@@ -81,19 +82,19 @@ class _MyProfileState extends State<MyProfile> {
                               Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 crossAxisAlignment: CrossAxisAlignment.start,
-                                // children: [
-                                //   Text(
-                                //     userData.userName,
-                                //     style: TextStyle(
-                                //         fontSize: 14,
-                                //         fontWeight: FontWeight.bold,
-                                //         color: textColor),
-                                //   ),
-                                //   SizedBox(
-                                //     height: 10,
-                                //   ),
-                                //   Text(userData.userEmail),
-                                // ],
+                                children: [
+                                  Text(
+                                    "Turyasiima Crispus",
+                                    style: TextStyle(
+                                        fontSize: 14,
+                                        fontWeight: FontWeight.bold,
+                                        color: textColor),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text("cturyasiima@gmail.com"),
+                                ],
                               ),
                               CircleAvatar(
                                 radius: 15,
@@ -104,7 +105,8 @@ class _MyProfileState extends State<MyProfile> {
                                     Icons.edit,
                                     color: primaryColor,
                                   ),
-                                  backgroundColor: scaffoldBackgroundColor,
+                                  backgroundColor:
+                                      Color.fromRGBO(254, 226, 204, 1),
                                 ),
                               )
                             ],
@@ -137,11 +139,12 @@ class _MyProfileState extends State<MyProfile> {
               radius: 50,
               backgroundColor: primaryColor,
               child: CircleAvatar(
-                  backgroundImage: NetworkImage(
-                    "https://s3.envato.com/files/328957910/vegi_thumb.png",
-                  ),
-                  radius: 45,
-                  backgroundColor: scaffoldBackgroundColor),
+                backgroundImage: NetworkImage(
+                  "https://s3.envato.com/files/328957910/vegi_thumb.png",
+                ),
+                radius: 45,
+                backgroundColor: Color.fromRGBO(254, 226, 204, 1),
+              ),
             ),
           )
         ],

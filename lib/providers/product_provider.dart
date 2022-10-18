@@ -40,11 +40,11 @@ class ProductProvider with ChangeNotifier {
   }
 
   List<ProductModel> get getHerbsProductDataList {
-    print(herbsProductList[0].productId);
-    print(herbsProductList[0].productImage);
-    print(herbsProductList[0].productName);
-    print(herbsProductList[0].productPrice);
-    print(herbsProductList[0].productQuantity);
+    // print(herbsProductList[0].productId);
+    // print(herbsProductList[0].productImage);
+    // print(herbsProductList[0].productName);
+    // print(herbsProductList[0].productPrice);
+    // print(herbsProductList[0].productQuantity);
     return herbsProductList;
   }
 

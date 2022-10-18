@@ -12,29 +12,34 @@ class AuthGate extends StatefulWidget {
 class _AuthGateState extends State<AuthGate> {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          // admin button
-          ElevatedButton.icon(
-              onPressed: () {
-                Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(
-                        builder: ((context) => const AdminHome())),
-                    (route) => true);
-              },
-              icon: Icon(Icons.admin_panel_settings),
-              label: Text("ADMIN")),
-          // user button
-          ElevatedButton.icon(
-              onPressed: () {
-                Navigator.of(context).pushAndRemoveUntil(
-                    MaterialPageRoute(builder: ((context) => HomeScreen())),
-                    (route) => true);
-              },
-              icon: Icon(Icons.admin_panel_settings),
-              label: Text("USER"))
-        ],
+    return Scaffold(
+      body: Center(
+        child: Column(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height / 3,
+            ),
+            // admin button
+            ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(
+                          builder: ((context) => const AdminHome())),
+                      (route) => true);
+                },
+                icon: Icon(Icons.admin_panel_settings),
+                label: Text("ADMIN")),
+            // user button
+            ElevatedButton.icon(
+                onPressed: () {
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(builder: ((context) => HomeScreen())),
+                      (route) => true);
+                },
+                icon: Icon(Icons.admin_panel_settings),
+                label: Text("USER"))
+          ],
+        ),
       ),
     );
   }

@@ -6,21 +6,21 @@ import 'package:grocery_app/widgets/count.dart';
 import 'package:provider/provider.dart';
 
 class SingleItem extends StatefulWidget {
-  bool isBool = false;
+  bool isBool;
   String productImage;
   String productName;
   bool wishList = false;
   int productPrice;
   String productId;
   int? productQuantity;
-  final onDelete;
+  VoidCallback onDelete;
   // var productUnit;
   SingleItem(
       {this.productQuantity,
       required this.productId,
       // required this.productUnit,
       required this.onDelete,
-      required this.isBool,
+      this.isBool = false,
       required this.productImage,
       required this.productName,
       required this.productPrice,

@@ -57,9 +57,9 @@ class _AdminUploadState extends State<AdminUpload> {
                   label: "Product Price",
                   hint: "Price of product",
                   icon: Icons.money,
-                  onChanged: (var value) {
+                  onChanged: (value) {
                     setState(() {
-                      adminCntrler.changePrice(value);
+                      adminCntrler.changePrice(int.parse(value));
                     });
                   },
                 ),
@@ -67,9 +67,9 @@ class _AdminUploadState extends State<AdminUpload> {
                   label: "Product Quantity",
                   hint: "Quantity of a product",
                   icon: Icons.production_quantity_limits,
-                  onChanged: (var value) {
+                  onChanged: (value) {
                     setState(() {
-                      adminCntrler.changeQuantity(value);
+                      adminCntrler.changeQuantity(int.parse(value));
                     });
                   },
                 ),
@@ -103,7 +103,7 @@ class _AdminUploadState extends State<AdminUpload> {
   // upload products
 
   Future<void> requestBlood(
-      String imageLink, String name, String price, String quantity) {
+      String imageLink, String name, int price, int quantity) {
     var uuid = Uuid();
     return requests
         .add({

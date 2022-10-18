@@ -7,8 +7,8 @@ final adminCntrler = Get.put(AdminController());
 class AdminController extends GetxController {
   String imageIink = '';
   String productName = '';
-  var productPrice = '';
-  var productQty = '';
+  int productPrice = 0;
+  int productQty = 0; 
   List<ProductModel> herbsProductList = [];
   List<ProductModel> search = [];
   late ProductModel productModel;
@@ -23,12 +23,12 @@ class AdminController extends GetxController {
     update();
   }
 
-  changePrice(var value) {
+  changePrice(int value) {
     productPrice = value;
     update();
   }
 
-  changeQuantity(var value) {
+  changeQuantity(int value) {
     productQty = value;
     update();
   }

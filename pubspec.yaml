@@ -40,6 +40,7 @@ dependencies:
   firebase_core: ^1.24.0
   get: ^4.6.5
   uuid: ^3.0.6
+  flutterwave: ^1.0.3
   flutter_speed_dial: ^6.0.0
   shimmer: ^2.0.0
   cached_network_image: ^3.2.1

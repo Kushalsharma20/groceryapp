@@ -1,10 +1,10 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 import 'package:grocery_app/config/colors.dart';
 import 'package:grocery_app/flutterwave.dart';
 import 'package:grocery_app/models/review_cart_model.dart';
 import 'package:grocery_app/providers/review_cart_provider.dart';
-import 'package:grocery_app/screens/check_out/delivery_details/delivery_details.dart';
 import 'package:grocery_app/widgets/single_item.dart';
 import 'package:provider/provider.dart';
 

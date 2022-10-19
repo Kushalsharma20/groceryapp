@@ -102,11 +102,7 @@ class ReviewCartProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  List<ReviewCartModel> get getReviewCartDataList {
-    print(reviewCartDataList);
-    print(reviewCartDataList.length);
-    return reviewCartDataList;
-  }
+  List<ReviewCartModel> get getReviewCartDataList => reviewCartDataList;
 
 //// TotalPrice  ///
 

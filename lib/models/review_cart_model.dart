@@ -1,0 +1,18 @@
+class ReviewCartModel {
+  String cartId;
+  String cartImage;
+  String cartName;
+  int cartPrice;
+  int cartQuantity;
+  var cartUnit;
+  bool? isAdd;
+  ReviewCartModel({
+    required this.cartId,
+    required this.cartUnit,
+    required this.cartImage,
+    required this.cartName,
+    required this.cartPrice,
+    required this.cartQuantity,
+    this.isAdd
+  });
+}

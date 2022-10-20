@@ -5,6 +5,8 @@ import 'package:grocery_app/models/review_cart_model.dart';
 import 'package:grocery_app/screens/review_cart/review_cart.dart';
 
 class ReviewCartProvider with ChangeNotifier {
+  double total = 0.0;
+
   void addReviewCartData({
     required String cartId,
     required String cartName,
@@ -14,21 +16,28 @@ class ReviewCartProvider with ChangeNotifier {
     var cartUnit,
     required BuildContext context,
   }) async {
-    FirebaseFirestore.instance.collection("YourReviewCart").add(
-      {
-        "cartId": cartId,
-        "cartName": cartName,
-        "cartImage": cartImage,
-        "cartPrice": cartPrice,
-        "cartQuantity": cartQuantity,
-        "cartUnit": cartUnit,
-        "isAdd": true,
-      },
-    ).then((value) => Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => ReviewCart(),
-          ),
-        ));
+    try {
+      await FirebaseFirestore.instance
+          .collection("YourReviewCart")
+          .doc(cartId)
+          .set(
+        {
+          "cartId": cartId,
+          "cartName": cartName,
+          "cartImage": cartImage,
+          "cartPrice": cartPrice,
+          "cartQuantity": cartQuantity,
+          "cartUnit": cartUnit,
+          "isAdd": true,
+        },
+      ).then((value) => Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => ReviewCart(),
+                ),
+              ));
+    } catch (e) {
+      print("Error in adding product " + e.toString());
+    }
   }
 
   void updateReviewCartData({
@@ -48,45 +57,23 @@ class ReviewCartProvider with ChangeNotifier {
         "isAdd": true,
       },
     );
-  }
-
-  List<ReviewCartModel> reviewCartDataList = [];
-
-  getReviewCartData() async {
-    List<ReviewCartModel> newList = [];
-
-    var reviewCartValue = await FirebaseFirestore.instance
-        .collection("YourReviewCart")
-        // .doc(FirebaseAuth.instance.currentUser?.uid)
-        .get();
-    reviewCartValue.docs.forEach((element) {
-      var data = element.data();
-      // var data = result.data;
-      // var data = currentUser;
-      ReviewCartModel reviewCartModel = ReviewCartModel(
-          cartId: data["cartId"],
-          cartName: data["cartName"],
-          cartImage: data["cartImage"],
-          cartPrice: data["cartPrice"],
-          cartQuantity: data["cartQuantity"],
-          cartUnit: data["cartUnit"],
-          isAdd: data["isAdd"]);
-      newList.add(reviewCartModel);
-      reviewCartDataList = newList;
-    });
     notifyListeners();
   }
 
-  List<ReviewCartModel> get getReviewCartDataList => reviewCartDataList;
+  getReviewCartData(var cartData) async {
+    // var reviewCartValue =
+    //     await FirebaseFirestore.instance.collection("YourReviewCart").get();
+    cartData.forEach((element) {
+      var item = element.data();
+      total += item["cartPrice"] * item["cartQuantity"];
+    });
+
+    // notifyListeners();
+  }
+
 // TotalPrice  ///
 
-  getTotalPrice() {
-    double total = 0.0;
-    reviewCartDataList.forEach((element) {
-      total += element.cartPrice * element.cartQuantity;
-    });
-    return total;
-  }
+  double get totalCartCost => total;
 
 // ReviCartDeleteFunction
   reviewCartDataDelete(cartId) async {

@@ -35,8 +35,13 @@ class _ReviewCartState extends State<ReviewCart> {
 
     // set up the AlertDialog
     AlertDialog alert = AlertDialog(
-      title: Text("Cart Product"),
-      content: Text("Are you devete on cartProduct?"),
+      title: Center(
+        child: Text(
+          "Cart Product",
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.w900),
+        ),
+      ),
+      content: Text("Are you sure you want to delete "),
       actions: [
         cancelButton,
         continueButton,
@@ -53,48 +58,17 @@ class _ReviewCartState extends State<ReviewCart> {
   }
 
   getTotalPrice(List<QueryDocumentSnapshot<Map<String, dynamic>>>? prov) {
-    double total = 0.0;
+    // double total = 0.0;
     prov!.forEach((element) {
-      // setState(() {
       totalCartPrice += (element["cartPrice"]) * (element["cartQuantity"]);
-      // });
     });
+    // setState(() {});
   }
 
   @override
   Widget build(BuildContext context) {
     reviewCartProvider = Provider.of<ReviewCartProvider>(context);
-
     return Scaffold(
-      bottomNavigationBar: ListTile(
-        title: Text("Total Amount"),
-        subtitle: Text(
-          "\$ $totalCartPrice",
-          style: TextStyle(
-            color: Colors.green[900],
-          ),
-        ),
-        trailing: Container(
-          width: 160,
-          child: MaterialButton(
-            child: Text("Checkout"),
-            color: Color.fromRGBO(254, 226, 204, 1),
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(
-                30,
-              ),
-            ),
-            onPressed: () {
-              // if (reviewCartProvider.getReviewCartDataList.isEmpty) {}
-              // Navigator.of(context).push(
-              //   MaterialPageRoute(
-              //     builder: (context) => Vegipay(),
-              //   ),
-              // );
-            },
-          ),
-        ),
-      ),
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(254, 226, 204, 1),
         title: Text(
@@ -118,6 +92,7 @@ class _ReviewCartState extends State<ReviewCart> {
                         itemCount: dat.length,
                         itemBuilder: (context, index) {
                           // return Text(dat[index]["cartName"]);
+                          reviewCartProvider.getReviewCartData(dat);
 
                           getTotalPrice(dat);
 
@@ -145,6 +120,35 @@ class _ReviewCartState extends State<ReviewCart> {
                         },
                       );
           }),
+      bottomNavigationBar: ListTile(
+        title: Text("Total Amount"),
+        subtitle: Text(
+          "\$ ${totalCartPrice}",
+          style: TextStyle(
+            color: Colors.green[900],
+          ),
+        ),
+        trailing: Container(
+          width: 160,
+          child: MaterialButton(
+            child: Text("Checkout"),
+            color: Color.fromRGBO(254, 226, 204, 1),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(
+                30,
+              ),
+            ),
+            onPressed: () {
+              // if (reviewCartProvider.getReviewCartDataList.isEmpty) {}
+              // Navigator.of(context).push(
+              //   MaterialPageRoute(
+              //     builder: (context) => Vegipay(),
+              //   ),
+              // );
+            },
+          ),
+        ),
+      ),
     );
   }
 }

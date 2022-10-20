@@ -26,13 +26,13 @@ class _PaymentSummaryState extends State<PaymentSummary> {
   @override
   Widget build(BuildContext context) {
     ReviewCartProvider reviewCartProvider = Provider.of(context);
-    reviewCartProvider.getReviewCartData();
+    // reviewCartProvider.getReviewCartData();
 
     double discount = 30;
     late double discountValue;
     double shippingChanrge = 3.7;
     late double total;
-    double totalPrice = reviewCartProvider.getTotalPrice();
+    double totalPrice = reviewCartProvider.totalCartCost;
     if (totalPrice > 300) {
       discountValue = (totalPrice * discount) / 100;
       total = totalPrice - discountValue;
@@ -104,15 +104,15 @@ class _PaymentSummaryState extends State<PaymentSummary> {
                           : "Work",
                 ),
                 Divider(),
-                ExpansionTile(
-                  children: reviewCartProvider.getReviewCartDataList.map((e) {
-                    return OrderItem(
-                      e: e,
-                    );
-                  }).toList(),
-                  title: Text(
-                      "Order Items ${reviewCartProvider.getReviewCartDataList.length}"),
-                ),
+                // ExpansionTile(
+                //   children: reviewCartProvider.getReviewCartDataList.map((e) {
+                //     return OrderItem(
+                //       e: e,
+                //     );
+                //   }).toList(),
+                //   title: Text(
+                //       "Order Items ${reviewCartProvider.getReviewCartDataList.length}"),
+                // ),
                 Divider(),
                 ListTile(
                   minVerticalPadding: 5,

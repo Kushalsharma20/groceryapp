@@ -14,12 +14,7 @@ class ReviewCartProvider with ChangeNotifier {
     var cartUnit,
     required BuildContext context,
   }) async {
-    FirebaseFirestore.instance
-        .collection("YourReviewCart")
-        .doc(FirebaseAuth.instance.currentUser?.uid)
-        // .collection("YourReviewCart")
-        // .doc(cartId)
-        .set(
+    FirebaseFirestore.instance.collection("YourReviewCart").add(
       {
         "cartId": cartId,
         "cartName": cartName,
@@ -30,10 +25,10 @@ class ReviewCartProvider with ChangeNotifier {
         "isAdd": true,
       },
     ).then((value) => Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => ReviewCart(),
-              ),
-            ));
+          MaterialPageRoute(
+            builder: (context) => ReviewCart(),
+          ),
+        ));
   }
 
   void updateReviewCartData({
@@ -43,12 +38,7 @@ class ReviewCartProvider with ChangeNotifier {
     required int cartPrice,
     required int cartQuantity,
   }) async {
-    FirebaseFirestore.instance
-        .collection("ReviewCart")
-        .doc(FirebaseAuth.instance.currentUser?.uid)
-        .collection("YourReviewCart")
-        .doc(cartId)
-        .update(
+    FirebaseFirestore.instance.collection("YourReviewCart").doc(cartId).update(
       {
         "cartId": cartId,
         "cartName": cartName,
@@ -65,46 +55,30 @@ class ReviewCartProvider with ChangeNotifier {
   getReviewCartData() async {
     List<ReviewCartModel> newList = [];
 
-    QuerySnapshot reviewCartValue = (await FirebaseFirestore.instance
+    var reviewCartValue = await FirebaseFirestore.instance
         .collection("YourReviewCart")
-        .doc(FirebaseAuth.instance.currentUser?.uid)
-        .get()) as QuerySnapshot<ReviewCartModel?>;
-    // .collection("YourReviewCart")
-    // .get();
-    print("data received");
-    print(reviewCartValue.docs.length);
+        // .doc(FirebaseAuth.instance.currentUser?.uid)
+        .get();
     reviewCartValue.docs.forEach((element) {
-      // ReviewCartModel reviewCartModel = ReviewCartModel(
-      //     cartId: element.get("cartId"),
-      //     cartImage: element.get("cartImage"),
-      //     cartName: element.get("cartName"),
-      //     cartPrice: element.get("cartPrice"),
-      //     cartQuantity: element.get("cartQuantity"),
-      //     cartUnit: element.get("cartUnit"),
-      //     isAdd: element.get("isAdd"));
-      // print("add added to cart model");
-      // print(reviewCartDataList[0].cartId);
-      // print(reviewCartDataList[0].cartName);
-      newList.addAll([
-        ReviewCartModel(
-            cartId: element.get("cartId"),
-            cartImage: element.get("cartImage"),
-            cartName: element.get("cartName"),
-            cartPrice: element.get("cartPrice"),
-            cartQuantity: element.get("cartQuantity"),
-            cartUnit: element.get("cartUnit"))
-      ]);
-      print(newList.length);
+      var data = element.data();
+      // var data = result.data;
+      // var data = currentUser;
+      ReviewCartModel reviewCartModel = ReviewCartModel(
+          cartId: data["cartId"],
+          cartName: data["cartName"],
+          cartImage: data["cartImage"],
+          cartPrice: data["cartPrice"],
+          cartQuantity: data["cartQuantity"],
+          cartUnit: data["cartUnit"],
+          isAdd: data["isAdd"]);
+      newList.add(reviewCartModel);
+      reviewCartDataList = newList;
     });
-    print("add data to cart model");
-    reviewCartDataList = newList;
-    print(reviewCartDataList);
     notifyListeners();
   }
 
   List<ReviewCartModel> get getReviewCartDataList => reviewCartDataList;
-
-//// TotalPrice  ///
+// TotalPrice  ///
 
   getTotalPrice() {
     double total = 0.0;
@@ -114,14 +88,11 @@ class ReviewCartProvider with ChangeNotifier {
     return total;
   }
 
-////////////// ReviCartDeleteFunction ////////////
-  reviewCartDataDelete(cartId) {
-    FirebaseFirestore.instance
-        .collection("ReviewCart")
-        .doc(FirebaseAuth.instance.currentUser!.uid)
+// ReviCartDeleteFunction
+  reviewCartDataDelete(cartId) async {
+    await FirebaseFirestore.instance
         .collection("YourReviewCart")
         .doc(cartId)
         .delete();
-    notifyListeners();
   }
 }

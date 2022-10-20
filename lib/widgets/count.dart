@@ -29,8 +29,8 @@ class _CountState extends State<Count> {
 
   getAddAndQuantity() {
     FirebaseFirestore.instance
-        .collection("ReviewCart")
-        .doc(FirebaseAuth.instance.currentUser?.uid)
+        // .collection("ReviewCart")
+        // .doc(FirebaseAuth.instance.currentUser?.uid)
         .collection("YourReviewCart")
         .doc(widget.productId)
         .get()
@@ -117,7 +117,6 @@ class _CountState extends State<Count> {
                       cartName: widget.productName,
                       cartPrice: widget.productPrice,
                       cartQuantity: count,
-                      
                     );
                   },
                   child: Icon(

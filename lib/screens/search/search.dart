@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:grocery_app/models/product_model.dart';
 import 'package:grocery_app/widgets/single_item.dart';
+import 'package:provider/provider.dart';
+
+import '../../providers/review_cart_provider.dart';
 
 class Search extends StatefulWidget {
   List<ProductModel> search;
@@ -10,6 +13,7 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
+  late ReviewCartProvider reviewCartProvider;
   String query = "";
 
   searchItem(String query) {
@@ -21,6 +25,7 @@ class _SearchState extends State<Search> {
 
   @override
   Widget build(BuildContext context) {
+    reviewCartProvider = Provider.of<ReviewCartProvider>(context);
     List<ProductModel> _searchItem = searchItem(query);
     return Scaffold(
       appBar: AppBar(
@@ -67,15 +72,16 @@ class _SearchState extends State<Search> {
           Column(
             children: _searchItem.map((data) {
               return SingleItem(
-                  isBool: false,
-                  productImage: data.productImage,
-                  productName: data.productName,
-                  productPrice: data.productPrice,
-                  onDelete: (){},
-                  productId: data.productId,
-                  productQuantity: data.productQuantity,
-                  // productUnit: data.productUnit,
-                  wishList: false);
+                isBool: false,
+                productImage: data.productImage,
+                productName: data.productName,
+                productPrice: data.productPrice,
+                onDelete: () {},
+                productId: data.productId,
+                productQuantity: data.productQuantity,
+                // productUnit: data.productUnit,
+                wishList: false, providerState: reviewCartProvider,
+              );
             }).toList(),
           )
         ],

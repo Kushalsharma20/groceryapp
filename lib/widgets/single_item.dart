@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:grocery_app/config/colors.dart';
-import 'package:grocery_app/providers/review_cart_provider.dart';
 import 'package:grocery_app/widgets/count.dart';
-import 'package:provider/provider.dart';
 
 class SingleItem extends StatefulWidget {
   bool isBool;
@@ -14,10 +12,12 @@ class SingleItem extends StatefulWidget {
   String productId;
   int? productQuantity;
   VoidCallback onDelete;
+  var providerState;
   // var productUnit;
   SingleItem(
       {this.productQuantity,
       required this.productId,
+      required this.providerState,
       // required this.productUnit,
       required this.onDelete,
       this.isBool = false,
@@ -31,7 +31,7 @@ class SingleItem extends StatefulWidget {
 }
 
 class _SingleItemState extends State<SingleItem> {
-  late ReviewCartProvider reviewCartProvider;
+  // late ReviewCartProvider reviewCartProvider;
 
   late int count;
   getCount() {
@@ -41,10 +41,16 @@ class _SingleItemState extends State<SingleItem> {
   }
 
   @override
+  void initState() {
+    // reviewCartProvider = Provider.of<ReviewCartProvider>(context);
+    // reviewCartProvider.getReviewCartData();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     getCount();
-    reviewCartProvider = Provider.of<ReviewCartProvider>(context);
-    reviewCartProvider.getReviewCartData();
+
     return Column(
       children: [
         Padding(
@@ -206,7 +212,7 @@ class _SingleItemState extends State<SingleItem> {
                                                   setState(() {
                                                     count--;
                                                   });
-                                                  reviewCartProvider
+                                                  widget.providerState
                                                       .updateReviewCartData(
                                                     cartImage:
                                                         widget.productImage,
@@ -237,7 +243,7 @@ class _SingleItemState extends State<SingleItem> {
                                                   setState(() {
                                                     count++;
                                                   });
-                                                  reviewCartProvider
+                                                  widget.providerState
                                                       .updateReviewCartData(
                                                     cartImage:
                                                         widget.productImage,

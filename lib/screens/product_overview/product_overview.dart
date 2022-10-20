@@ -135,16 +135,21 @@ class _ProductOverviewState extends State<ProductOverview> {
               title: "Go To Cart",
               iconData: Icons.shop_outlined,
               onTap: () {
-                print("started to add");
-                cartProvider.addReviewCartData(
-                    context: context,
-                    cartId: widget.productId,
-                    cartName: widget.productImage,
-                    cartImage: widget.productImage,
-                    cartPrice: widget.productPrice,
-                    cartQuantity: widget.productQuantity,
-                    cartUnit: widget.productQuantity);
-                print("finished to add");
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => ReviewCart(),
+                  ),
+                );
+                // print("started to add");
+                // cartProvider.addReviewCartData(
+                //     context: context,
+                //     cartId: widget.productId,
+                //     cartName: widget.productImage,
+                //     cartImage: widget.productImage,
+                //     cartPrice: widget.productPrice,
+                //     cartQuantity: widget.productQuantity,
+                //     cartUnit: widget.productQuantity);
+                // print("finished to add");
               }),
         ],
       ),

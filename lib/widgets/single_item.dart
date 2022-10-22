@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:get/get.dart';
 import 'package:grocery_app/config/colors.dart';
 import 'package:grocery_app/widgets/count.dart';
 
@@ -62,6 +63,7 @@ class _SingleItemState extends State<SingleItem> {
                   height: 90,
                   child: Center(
                     child: Image.network(
+                  
                       widget.productImage,
                     ),
                   ),
@@ -87,7 +89,7 @@ class _SingleItemState extends State<SingleItem> {
                                 fontSize: 16),
                           ),
                           Text(
-                            "${widget.productPrice}\$",
+                            "UGX ${widget.productPrice}",
                             style: TextStyle(
                                 color: textColor, fontWeight: FontWeight.bold),
                           ),

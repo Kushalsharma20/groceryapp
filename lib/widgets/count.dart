@@ -61,7 +61,7 @@ class _CountState extends State<Count> {
       decoration: BoxDecoration(
         //border: Border.all(color: Colors.grey),
         borderRadius: BorderRadius.circular(30),
-        color: Color.fromRGBO(254, 226, 204, 1),
+        color: primaryColor,
       ),
       child: isTrue == true
           ? Row(

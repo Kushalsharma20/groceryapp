@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:grocery_app/config/colors.dart';
 import 'package:grocery_app/controllers/admin_controller.dart';
 import 'package:grocery_app/screens/admin/admin_home.dart';
 import 'package:grocery_app/widgets/rounded_button.dart';
@@ -24,8 +25,12 @@ class _AdminUploadState extends State<AdminUpload> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: primaryColor,
         centerTitle: true,
-        title: const Text("Admin DashBoard"),
+        title: const Text(
+          "Admin DashBoard",
+          style: TextStyle(color: Colors.black),
+        ),
       ),
       body: Form(
           key: formkey,

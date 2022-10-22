@@ -1,3 +1,5 @@
+import 'package:carousel_slider/carousel_options.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery_app/config/colors.dart';
 import 'package:grocery_app/controllers/admin_controller.dart';
@@ -22,49 +24,18 @@ class _HomeScreenState extends State<HomeScreen> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Padding(
-          padding: const EdgeInsetsDirectional.only(top: 8),
-          child: Column(
-            children: [
-              Container(
-                padding: EdgeInsetsDirectional.only(
-                    top: 4,
-                    bottom: 4,
-                    start: 4,
-                    end: MediaQuery.of(context).size.width * .7),
-                width: double.infinity,
-                color: Color.fromRGBO(254, 226, 204, 1),
-                child: FittedBox(
-                  child: Column(
-                    children: [
-                      Text(
-                        "Up to 30% Off",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        textAlign: TextAlign.start,
-                      ),
-                      Text(
-                        "On all vegetable products",
-                        style: TextStyle(
-                          fontSize: 10,
-                        ),
-                        textAlign: TextAlign.start,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
+        SizedBox(
+          height: 10,
         ),
         Padding(
           padding: const EdgeInsetsDirectional.only(top: 8),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Herbs Seasonings'),
+              Text(
+                'Herbs Seasonings',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
@@ -126,48 +97,14 @@ class _HomeScreenState extends State<HomeScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsetsDirectional.only(top: 8),
-          child: Column(
-            children: [
-              Container(
-                padding: EdgeInsetsDirectional.only(
-                    top: 4,
-                    bottom: 4,
-                    start: 4,
-                    end: MediaQuery.of(context).size.width * .7),
-                width: double.infinity,
-                color: Color.fromRGBO(254, 226, 204, 1),
-                child: FittedBox(
-                  child: Column(
-                    children: [
-                      Text(
-                        "Up to 30% Off",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        textAlign: TextAlign.start,
-                      ),
-                      Text(
-                        "On all vegetable products",
-                        style: TextStyle(
-                          fontSize: 10,
-                        ),
-                        textAlign: TextAlign.start,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Padding(
           padding: const EdgeInsets.symmetric(vertical: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Fresh Fruits'),
+              Text(
+                'Fresh Fruits',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
@@ -226,48 +163,14 @@ class _HomeScreenState extends State<HomeScreen> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsetsDirectional.only(top: 8),
-          child: Column(
-            children: [
-              Container(
-                padding: EdgeInsetsDirectional.only(
-                    top: 4,
-                    bottom: 4,
-                    start: 4,
-                    end: MediaQuery.of(context).size.width * .7),
-                width: double.infinity,
-                color: Color.fromRGBO(254, 226, 204, 1),
-                child: FittedBox(
-                  child: Column(
-                    children: [
-                      Text(
-                        "Up to 30% Off",
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500,
-                        ),
-                        textAlign: TextAlign.start,
-                      ),
-                      Text(
-                        "On all vegetable products",
-                        style: TextStyle(
-                          fontSize: 10,
-                        ),
-                        textAlign: TextAlign.start,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-        Padding(
           padding: const EdgeInsets.symmetric(vertical: 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Root Vegetable'),
+              Text(
+                'Root Vegetable',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
               GestureDetector(
                 onTap: () {
                   Navigator.of(context).push(
@@ -342,7 +245,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Color.fromRGBO(254, 226, 204, 1),
+        backgroundColor: primaryColor,
         title: const Text(
           "Home",
           style: TextStyle(color: Colors.black),
@@ -388,21 +291,6 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ),
           ),
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: btmSelectedIndex,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.format_list_bulleted_outlined),
-              label: "Categories"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart_checkout), label: "Cart"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline), label: "Account"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.help_outline), label: "Help"),
         ],
       ),
 
@@ -456,18 +344,81 @@ class _HomeScreenState extends State<HomeScreen> {
       //     ),
       //   ],
       // ),
+
+      // Expanded(
+      //   flex: 2,
+      //   child: Container(
+      //     child: Column(
+      //       children: [
+      //         Padding(
+      //           padding: const EdgeInsets.only(right: 130, bottom: 10),
+      //           child: Container(
+      //             height: 50,
+      //             width: 100,
+      //             decoration: BoxDecoration(
+      //               color: primaryColor,
+      //               borderRadius: BorderRadius.only(
+      //                 bottomRight: Radius.circular(50),
+      //                 bottomLeft: Radius.circular(50),
+      //               ),
+      //             ),
+      //             child: Center(
+      //               child: Text(
+      //                 'Vegi',
+      //                 style: TextStyle(
+      //                   fontSize: 20,
+      //                   color: Colors.white,
+      //                   shadows: [
+      //                     BoxShadow(
+      //                         color: Colors.grey,
+      //                         blurRadius: 10,
+      //                         offset: Offset(3, 3))
+      //                   ],
+      //                 ),
+      //               ),
+      //             ),
+      //           ),
+      //         ),
+      //         Text(
+      //           '30% Off',
+      //           style: TextStyle(
+      //               fontSize: 40,
+      //               color: Colors.yellow,
+      //               fontWeight: FontWeight.bold),
+      //         ),
+      //         Padding(
+      //           padding: const EdgeInsets.only(left: 20),
+      //           child: Text(
+      //             'On all vegetables products',
+      //             style: TextStyle(
+      //               color: Colors.white,
+      //             ),
+      //           ),
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
+      //     Expanded(
+      //       child: Container(),
+      //     ),
+      //     _buildHerbsProduct(context),
+      //     _buildFreshProduct(context),
+      //     _buildRootProduct(),
+      //   ],
+      // ));
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         child: ListView(
           children: [
             Container(
-              height: 150,
+              height: 220,
               decoration: BoxDecoration(
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage('assets/groc.jpg'),
+                  image: AssetImage('assets/white.jpg'),
                 ),
-                color: Colors.red,
+                color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Row(
@@ -484,7 +435,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               height: 50,
                               width: 100,
                               decoration: BoxDecoration(
-                                color: Colors.green,
+                                color: primaryColor,
                                 borderRadius: BorderRadius.only(
                                   bottomRight: Radius.circular(50),
                                   bottomLeft: Radius.circular(50),
@@ -498,7 +449,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     color: Colors.white,
                                     shadows: [
                                       BoxShadow(
-                                          color: Colors.green,
+                                          color: Colors.grey,
                                           blurRadius: 10,
                                           offset: Offset(3, 3))
                                     ],
@@ -507,22 +458,22 @@ class _HomeScreenState extends State<HomeScreen> {
                               ),
                             ),
                           ),
-                          // Text(
-                          //   '30% Off',
-                          //   style: TextStyle(
-                          //       fontSize: 40,
-                          //       color: Colors.black,
-                          //       fontWeight: FontWeight.bold),
-                          // ),
-                          // Padding(
-                          //   padding: const EdgeInsets.only(left: 20),
-                          //   child: Text(
-                          //     'On all vegetables products',
-                          //     style: TextStyle(
-                          //       color: Colors.white,
-                          //     ),
-                          //   ),
-                          // ),
+                          Text(
+                            '30% Off',
+                            style: TextStyle(
+                                fontSize: 40,
+                                color: Colors.yellow,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20),
+                            child: Text(
+                              'On all vegetables products',
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
                         ],
                       ),
                     ),

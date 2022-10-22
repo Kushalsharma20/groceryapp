@@ -129,7 +129,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                 // }
               }),
           bonntonNavigatorBar(
-              backgroundColor: Color.fromRGBO(254, 226, 204, 1),
+              backgroundColor: primaryColor,
               color: textColor,
               iconColor: Colors.black45,
               title: "Go To Cart",
@@ -154,7 +154,7 @@ class _ProductOverviewState extends State<ProductOverview> {
         ],
       ),
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(254, 226, 204, 1),
+        backgroundColor: primaryColor,
         iconTheme: IconThemeData(color: textColor),
         title: Text(
           "Product Overview",
@@ -173,8 +173,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                       title: Text(widget.productName),
                       subtitle: Text(
                         widget.productPrice.toString(),
-                        style:
-                            TextStyle(color: Color.fromRGBO(254, 226, 204, 1)),
+                        style: TextStyle(color: Colors.green),
                       ),
                     ),
                     Container(
@@ -206,13 +205,12 @@ class _ProductOverviewState extends State<ProductOverview> {
                             children: [
                               CircleAvatar(
                                 radius: 3,
-                                backgroundColor:
-                                    Color.fromRGBO(254, 226, 204, 1),
+                                backgroundColor: Colors.green,
                               ),
                               Radio(
                                 value: SinginCharacter.fill,
                                 groupValue: _character,
-                                activeColor: Color.fromRGBO(254, 226, 204, 1),
+                                activeColor: Colors.green,
                                 onChanged: (dynamic value) {
                                   setState(() {
                                     _character = value;
@@ -226,7 +224,7 @@ class _ProductOverviewState extends State<ProductOverview> {
                             ],
                           ),
                           Text(
-                            "\$${widget.productPrice}",
+                            "\UGX ${widget.productPrice}",
                             style: TextStyle(color: Colors.black),
                           ),
                           Count(

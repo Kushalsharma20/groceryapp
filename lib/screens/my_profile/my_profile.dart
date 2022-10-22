@@ -35,7 +35,7 @@ class _MyProfileState extends State<MyProfile> {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 143, 197, 174),
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(254, 226, 204, 1),
+        backgroundColor: primaryColor,
         elevation: 0.0,
         title: Text(
           "My Profile",

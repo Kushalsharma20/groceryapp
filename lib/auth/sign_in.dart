@@ -11,45 +11,45 @@
 
 // class SignIn extends StatefulWidget {
 //   @override
-//   _SignInState createState() => _SignInState();
-// }
+// //   _SignInState createState() => _SignInState();
+// // }
 
-// class _SignInState extends State<SignIn> {
-//   late UserProvider userProvider;
-//   Future<User> _googleSignUp() async {
-//     try {
-//       final GoogleSignIn _googleSignIn = GoogleSignIn(
-//         scopes: ['email'],
-//       );
-//       final FirebaseAuth _auth = FirebaseAuth.instance;
+// // class _SignInState extends State<SignIn> {
+// //   late UserProvider userProvider;
+// //   Future<User> _googleSignUp() async {
+// //     try {
+// //       final GoogleSignIn _googleSignIn = GoogleSignIn(
+// //         scopes: ['email'],
+// //       );
+// //       final FirebaseAuth _auth = FirebaseAuth.instance;
 
-//       final GoogleSignInAccount googleUser = await (_googleSignIn.signIn() as FutureOr<GoogleSignInAccount>);
-//       final GoogleSignInAuthentication googleAuth =
-//           await googleUser.authentication;
+// //       final GoogleSignInAccount googleUser = await (_googleSignIn.signIn() as FutureOr<GoogleSignInAccount>);
+// //       final GoogleSignInAuthentication googleAuth =
+// //           await googleUser.authentication;
 
-//       final AuthCredential credential = GoogleAuthProvider.credential(
-//         accessToken: googleAuth.accessToken,
-//         idToken: googleAuth.idToken,
-//       );
+// //       final AuthCredential credential = GoogleAuthProvider.credential(
+// //         accessToken: googleAuth.accessToken,
+// //         idToken: googleAuth.idToken,
+// //       );
 
-//       final User user = (await _auth.signInWithCredential(credential)).user!;
-//       // print("signed in " + user.displayName);
-//       userProvider.addUserData(
-//         currentUser: user,
-//         userEmail: "user.email",
-//         userImage: "user.photoURL",
-//         userName: "user.displayName",
-//       );
+//   //   final User user = (await _auth.signInWithCredential(credential)).user!;
+//   //   // print("signed in " + user.displayName);
+//   //   userProvider.addUserData(
+//   //     currentUser: user,
+//   //     userEmail: "user.email",
+//   //     userImage: "user.photoURL",
+//   //     userName: "user.displayName",
+//   //   );
 
-//       return user;
-//     } catch (e) {
-//       print(e.message);
-//     }
-//   }
+//   //   return user;
+//   // } catch (e) {
+//   //   ///print(e.message);
+//   // }
+//   //}
 
 //   @override
 //   Widget build(BuildContext context) {
-//     userProvider = Provider.of<UserProvider>(context);
+//     //userProvider = Provider.of<UserProvider>(context);
 //     return Scaffold(
 //       body: Container(
 //         height: double.infinity,
@@ -90,13 +90,13 @@
 //                         Buttons.Google,
 //                         text: "Sign in with Google",
 //                         onPressed: () async {
-//                           await _googleSignUp().then(
-//                             (value) => Navigator.of(context).pushReplacement(
-//                               MaterialPageRoute(
-//                                 builder: (context) => HomeScreen(),
-//                               ),
-//                             ),
-//                           );
+//                           // await _googleSignUp().then(
+//                           //   (value) => Navigator.of(context).pushReplacement(
+//                           //     MaterialPageRoute(
+//                           //       builder: (context) => HomeScreen(),
+//                           //     ),
+//                           //   ),
+//                           // );
 //                         },
 //                       ),
 //                     ],
@@ -124,5 +124,11 @@
 //         ),
 //       ),
 //     );
+//   }
+  
+//   @override
+//   State<StatefulWidget> createState() {
+//     // TODO: implement createState
+//     throw UnimplementedError();
 //   }
 // }

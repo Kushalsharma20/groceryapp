@@ -83,7 +83,7 @@ class _ReviewCartState extends State<ReviewCart> {
     reviewCartProvider = Provider.of<ReviewCartProvider>(context);
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(254, 226, 204, 1),
+        backgroundColor: primaryColor,
         title: Text(
           "Review Cart",
           style: TextStyle(color: textColor, fontSize: 18),
@@ -150,7 +150,7 @@ class _ReviewCartState extends State<ReviewCart> {
           width: 160,
           child: MaterialButton(
             child: Text("Checkout"),
-            color: Color.fromRGBO(254, 226, 204, 1),
+            color: primaryColor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(
                 30,

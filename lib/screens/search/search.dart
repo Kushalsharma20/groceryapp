@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_app/config/colors.dart';
 import 'package:grocery_app/models/product_model.dart';
 import 'package:grocery_app/widgets/single_item.dart';
 import 'package:provider/provider.dart';
@@ -29,16 +30,20 @@ class _SearchState extends State<Search> {
     List<ProductModel> _searchItem = searchItem(query);
     return Scaffold(
       appBar: AppBar(
-        title: Text("Search"),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.sort),
-            ),
-          ),
-        ],
+        backgroundColor: primaryColor,
+        title: Text(
+          "Search",
+          style: TextStyle(color: Colors.black),
+        ),
+        // actions: [
+        //   Padding(
+        //     padding: const EdgeInsets.all(8.0),
+        //     child: IconButton(
+        //       onPressed: () {},
+        //       icon: Icon(Icons.sort),
+        //     ),
+        //   ),
+        // ],
       ),
       body: ListView(
         children: [
@@ -59,7 +64,7 @@ class _SearchState extends State<Search> {
                   borderRadius: BorderRadius.circular(30),
                   borderSide: BorderSide.none,
                 ),
-                fillColor: Color(0xffc2c2c2),
+                fillColor: Colors.grey,
                 filled: true,
                 hintText: "Search for items in the store",
                 suffixIcon: Icon(Icons.search),

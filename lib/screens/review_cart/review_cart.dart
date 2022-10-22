@@ -123,7 +123,11 @@ class _ReviewCartState extends State<ReviewCart> {
       bottomNavigationBar: ListTile(
         title: Text("Total Amount"),
         subtitle: Text(
-          "\$ ${totalCartPrice}",
+//<<<<<<< Updated upstream
+          "\$ ${totalCartPrice}"
+//=======
+          "\UGX ${reviewCartProvider.getTotalPrice()}",
+//>>>>>>> Stashed changes
           style: TextStyle(
             color: Colors.green[900],
           ),
@@ -132,7 +136,7 @@ class _ReviewCartState extends State<ReviewCart> {
           width: 160,
           child: MaterialButton(
             child: Text("Checkout"),
-            color: Color.fromRGBO(254, 226, 204, 1),
+            color: primaryColor,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(
                 30,
@@ -149,6 +153,47 @@ class _ReviewCartState extends State<ReviewCart> {
           ),
         ),
       ),
+//<<<<<<< Updated upstream
+//=======
+      appBar: AppBar(
+        backgroundColor: primaryColor,
+        title: Text(
+          "Review Cart",
+          style: TextStyle(color: textColor, fontSize: 18),
+        ),
+      ),
+      body: reviewCartProvider.getReviewCartDataList.isEmpty
+          ? Center(
+              child: Text("NO DATA"),
+            )
+          : ListView.builder(
+              itemCount: reviewCartProvider.getReviewCartDataList.length,
+              itemBuilder: (context, index) {
+                ReviewCartModel data =
+                    reviewCartProvider.getReviewCartDataList[index];
+                return Column(
+                  children: [
+                    SizedBox(
+                      height: 10,
+                    ),
+                    SingleItem(
+                      isBool: true,
+                      wishList: false,
+                      productImage: data.cartImage,
+                      productName: data.cartName,
+                      productPrice: data.cartPrice,
+                      productId: data.cartId,
+                      productQuantity: data.cartQuantity,
+                      // productUnit: data.cartUnit,
+                      onDelete: () {
+                        showAlertDialog(context, data);
+                      },
+                    ),
+                  ],
+                );
+              },
+            ),
+//>>>>>>> Stashed changes
     );
   }
 }

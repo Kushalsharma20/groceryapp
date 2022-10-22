@@ -32,7 +32,7 @@ class _PaymentSummaryState extends State<PaymentSummary> {
     late double discountValue;
     double shippingChanrge = 3.7;
     late double total;
-    double totalPrice = reviewCartProvider.totalCartCost;
+    double totalPrice = 0.0;
     if (totalPrice > 300) {
       discountValue = (totalPrice * discount) / 100;
       total = totalPrice - discountValue;

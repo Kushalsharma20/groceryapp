@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:get/get.dart';
 import 'package:grocery_app/authgate.dart';
 import 'package:grocery_app/config/colors.dart';
 import 'package:grocery_app/providers/check_out_provider.dart';
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
           create: (context) => CheckoutProvider(),
         ),
       ],
-      child: MaterialApp(
+      child: GetMaterialApp(
         theme: ThemeData(
             primaryColor: primaryColor, scaffoldBackgroundColor: Colors.white),
         debugShowCheckedModeBanner: false,

@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'rounded_input_field.dart';
 
-
 class RoundedInput extends StatelessWidget {
   final String label;
   final String hint;
   final IconData icon;
-  final VoidCallback? ontap;
+  final VoidCallback? onTap;
   final TextEditingController? handler;
   final void Function(String)? onChanged;
   final Widget? suffixIcon;
@@ -17,7 +16,7 @@ class RoundedInput extends StatelessWidget {
       required this.label,
       required this.hint,
       required this.icon,
-      this.ontap,
+      this.onTap,
       this.handler,
       this.onChanged,
       this.suffixIcon,
@@ -46,7 +45,7 @@ class RoundedInput extends StatelessWidget {
               hintText: hint,
               x: readOnly,
               icon: icon,
-              tap: ontap,
+              tap: onTap,
               controller: handler,
               postfixIcon: suffixIcon,
               onChanged: onChanged,

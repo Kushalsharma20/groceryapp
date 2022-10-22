@@ -39,15 +39,6 @@ class ProductProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  List<ProductModel> get getHerbsProductDataList {
-    // print(herbsProductList[0].productId);
-    // print(herbsProductList[0].productImage);
-    // print(herbsProductList[0].productName);
-    // print(herbsProductList[0].productPrice);
-    // print(herbsProductList[0].productQuantity);
-    return herbsProductList;
-  }
-
 //////////////// Fresh Product ///////////////////////////////////////
 
   List<ProductModel> freshProductList = [];
@@ -56,21 +47,28 @@ class ProductProvider with ChangeNotifier {
     List<ProductModel> newList = [];
 
     QuerySnapshot value =
-        await FirebaseFirestore.instance.collection("FreshProduct").get();
-
+        await FirebaseFirestore.instance.collection("Fruits").get();
+    print("request returned ${value.docs.length}");
     value.docs.forEach(
       (element) {
         productModels(element);
-        newList.add(productModel);
+
+        newList.add(ProductModel(
+          productImage: element.get("productImage"),
+          productName: element.get("productName"),
+          productPrice: element.get("productPrice"),
+          productId: element.get("productId"),
+          // productUnit: element.get("productUnit"),
+          productQuantity: element.get("productQuantity"),
+        ));
       },
     );
     freshProductList = newList;
+    // print(herbsProductList.length);
     notifyListeners();
   }
 
-  List<ProductModel> get getFreshProductDataList {
-    return freshProductList;
-  }
+  List<ProductModel> get getFreshProductDataList => freshProductList;
 
 //////////////// Root Product ///////////////////////////////////////
 
@@ -80,12 +78,22 @@ class ProductProvider with ChangeNotifier {
     List<ProductModel> newList = [];
 
     QuerySnapshot value =
-        await FirebaseFirestore.instance.collection("RootProduct").get();
+        await FirebaseFirestore.instance.collection("RootVegs").get();
 
     value.docs.forEach(
       (element) {
+        print(
+          element.get("productName"),
+        );
         productModels(element);
-        newList.add(productModel);
+        newList.add(ProductModel(
+          productImage: element.get("productImage"),
+          productName: element.get("productName"),
+          productPrice: element.get("productPrice"),
+          productId: element.get("productId"),
+          // productUnit: element.get("productUnit"),
+          productQuantity: element.get("productQuantity"),
+        ));
       },
     );
     rootProductList = newList;
@@ -95,6 +103,8 @@ class ProductProvider with ChangeNotifier {
   List<ProductModel> get getRootProductDataList {
     return rootProductList;
   }
+
+  List<ProductModel> get getHerbsProductDataList => herbsProductList;
 
   /////////////////// Search Return ////////////
   List<ProductModel> get getAllProductSearch {

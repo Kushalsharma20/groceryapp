@@ -17,8 +17,8 @@ class AdminUpload extends StatefulWidget {
 
 class _AdminUploadState extends State<AdminUpload> {
   // Create a CollectionReference called users that references the firestore collection
-  CollectionReference requests =
-      FirebaseFirestore.instance.collection('HerbsProduct');
+  var catController = TextEditingController();
+
   final formkey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -57,6 +57,18 @@ class _AdminUploadState extends State<AdminUpload> {
                       adminCntrler.changeName(value);
                     });
                   },
+                ),
+                RoundedInput(
+                  label: "Product Category",
+                  hint: "Category eg HerbsProduct,Fruits..",
+                  onTap: () => showCategories(),
+                  icon: Icons.category,
+                  handler: catController,
+                  // onChanged: (String value) {
+                  //   setState(() {
+                  //     adminCntrler.changeName(value);
+                  //   });
+                  // },
                 ),
                 RoundedInput(
                   label: "Product Price",
@@ -110,8 +122,9 @@ class _AdminUploadState extends State<AdminUpload> {
   Future<void> requestBlood(
       String imageLink, String name, int price, int quantity) {
     var uuid = Uuid();
-    return requests
-        .add({
+    return adminCntrler.getCollection
+        .doc(uuid.v1())
+        .set({
           'productId': uuid.v1(),
           'productImage': imageLink,
           'productName': name,
@@ -122,5 +135,54 @@ class _AdminUploadState extends State<AdminUpload> {
             .showSnackBar(const SnackBar(content: Text("Product Uploaded"))))
         .catchError((error) => ScaffoldMessenger.of(context).showSnackBar(
             SnackBar(content: Text("Failed to upload product: $error"))));
+  }
+
+  void showCategories() {
+    showModalBottomSheet(
+        backgroundColor: Colors.transparent,
+        context: context,
+        builder: (context) {
+          return BottomSheet(
+              backgroundColor: Colors.transparent,
+              onClosing: () {},
+              builder: (context) {
+                return Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: MediaQuery.of(context).size.height,
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(50),
+                      topRight: Radius.circular(50),
+                    ),
+                  ),
+                  child: ListView(
+                    children: List.generate(
+                      adminCntrler.cats.length,
+                      (index) => ListTile(
+                        hoverColor: Colors.black38,
+                        onTap: () {
+                          setState(() {
+                            Navigator.pop(context);
+                            // group = groups[index];
+                            adminCntrler
+                                .setCollectionName(adminCntrler.cats[index]);
+                            setState(() {
+                              catController.text = adminCntrler.cats[index];
+                            });
+                          });
+                          // catController.text = cats[index];
+                        },
+                        title: Center(
+                          child: Text(
+                            adminCntrler.cats[index],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                );
+              });
+        });
   }
 }

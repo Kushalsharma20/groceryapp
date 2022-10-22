@@ -7,11 +7,24 @@ final adminCntrler = Get.put(AdminController());
 class AdminController extends GetxController {
   String imageIink = '';
   String productName = '';
+  List allCatList = [];
+
   int productPrice = 0;
-  int productQty = 0; 
+  int productQty = 0;
   List<ProductModel> herbsProductList = [];
+  // List<String> categories = ["HerbsProduct", "Fruits", "RootVegs"];
   List<ProductModel> search = [];
   late ProductModel productModel;
+  late CollectionReference requests;
+
+  setCollectionName(String name) {
+    requests = FirebaseFirestore.instance.collection(name);
+    update();
+  }
+
+  List<String> get cats => ["HerbsProduct", "Fruits", "RootVegs"];
+  List get allData => allCatList;
+  CollectionReference get getCollection => requests;
 
   changeImage(String value) {
     imageIink = value;
@@ -45,21 +58,56 @@ class AdminController extends GetxController {
     update();
   }
 
-  fetchHerbsProductData() async {
+  List<ProductModel> fetchProductData(String collectionName) {
     List<ProductModel> newList = [];
-
-    QuerySnapshot value =
-        await FirebaseFirestore.instance.collection("HerbsProduct").get();
-    print("request returned ${value.docs.length}");
-    value.docs.forEach(
-      (element) {
+    FirebaseFirestore.instance.collection(collectionName).get().then((value) {
+      value.docs.forEach((element) {
         productModels(element);
-
+        productModel = ProductModel(
+          productId: element.get("productId"),
+          productImage: element.get("productImage"),
+          productName: element.get("productName"),
+          productPrice: element.get("productPrice"),
+          productQuantity: element.get("productQuantity"),
+        );
         newList.add(productModel);
-      },
-    );
-    herbsProductList = newList;
-    print(herbsProductList.length);
+      });
+    });
+    // value.docs.forEach(
+    //   (element) {
+    //     productModels(element);
+    //     newList.add(productModel);
+    //   },
+    // );
+
+    update();
+    return newList;
+  }
+
+  // function to fetch all firebase collections with their products
+  void fetchAll() async {
+    List allCat = [];
+    for (var i = 0; i < cats.length; i++) {
+      var value = await FirebaseFirestore.instance.collection(cats[i]).get();
+      value.docs.forEach((element) {
+        var pdt = ProductModel(
+          productId: element.get("productId"),
+          productImage: element.get("productImage"),
+          productName: element.get("productName"),
+          productPrice: element.get("productPrice"),
+          productQuantity: element.get("productQuantity"),
+        );
+
+        allCat.add([pdt, cats[i]]);
+        allCatList = allCat;
+        print("All data: ${allCatList.toString()}");
+      });
+    }
+    // update();
+  }
+
+  removePdt(String cat, String pdtId) async {
+    await FirebaseFirestore.instance.collection(cat).doc(pdtId).delete();
     update();
   }
 }

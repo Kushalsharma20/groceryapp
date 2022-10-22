@@ -44,9 +44,12 @@ class _AdminHomeState extends State<AdminHome> {
                               "Are you sure you want to delete ${herbsProductData[index][0].productName} ?"),
                           actions: [
                             TextButton(
-                                onPressed: () => adminCntrler.removePdt(
-                                    herbsProductData[index][1],
-                                    herbsProductData[index][0].productId),
+                                onPressed: () {
+                                  adminCntrler.removePdt(
+                                      herbsProductData[index][1],
+                                      herbsProductData[index][0].productId);
+                                  Navigator.pop(context);
+                                },
                                 child: Text("Yes",
                                     style: TextStyle(color: Colors.blue))),
                             TextButton(

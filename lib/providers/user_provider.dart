@@ -43,7 +43,5 @@ class UserProvider with ChangeNotifier {
     }
   }
 
-  UserModel get currentUserData {
-    return currentData;
-  }
+  UserModel get currentUserData => currentData;
 }

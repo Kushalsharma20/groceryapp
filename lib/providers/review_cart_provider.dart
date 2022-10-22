@@ -1,12 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:grocery_app/models/review_cart_model.dart';
 import 'package:grocery_app/screens/review_cart/review_cart.dart';
 
 class ReviewCartProvider with ChangeNotifier {
-  double total = 0.0;
-
+  // double total = 0.0;
   void addReviewCartData({
     required String cartId,
     required String cartName,
@@ -60,20 +57,21 @@ class ReviewCartProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  getReviewCartData(var cartData) async {
+  double getReviewCartData(var cartData) {
     // var reviewCartValue =
     //     await FirebaseFirestore.instance.collection("YourReviewCart").get();
+    double total = 0.0;
     cartData.forEach((element) {
       var item = element.data();
       total += item["cartPrice"] * item["cartQuantity"];
     });
-
     // notifyListeners();
+    return total;
   }
 
 // TotalPrice  ///
 
-  double get totalCartCost => total;
+  // double get totalCartCost => total;
 
 // ReviCartDeleteFunction
   reviewCartDataDelete(cartId) async {

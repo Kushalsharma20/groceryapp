@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery_app/config/colors.dart';
-import 'package:grocery_app/models/product_model.dart';
 import 'package:grocery_app/providers/review_cart_provider.dart';
 import 'package:provider/provider.dart';
 

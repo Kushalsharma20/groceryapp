@@ -1,8 +1,5 @@
-import 'package:carousel_slider/carousel_options.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:grocery_app/config/colors.dart';
-import 'package:grocery_app/controllers/admin_controller.dart';
 import 'package:grocery_app/providers/product_provider.dart';
 import 'package:grocery_app/providers/user_provider.dart';
 import 'package:grocery_app/screens/product_overview/product_overview.dart';
@@ -21,6 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
   late ProductProvider productProvider;
 
   Widget _buildHerbsProduct(context) {
+    productProvider.fatchHerbsProductData();
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -221,15 +219,6 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
       ],
     );
-  }
-
-  @override
-  void initState() {
-    ProductProvider initproductProvider = Provider.of(context);
-    initproductProvider.fatchHerbsProductData();
-    initproductProvider.fatchFreshProductData();
-    initproductProvider.fatchRootProductData();
-    super.initState();
   }
 
   @override

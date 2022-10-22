@@ -17,13 +17,13 @@ class _AdminHomeState extends State<AdminHome> {
   @override
   void initState() {
     // TODO: implement initState
-    adminCntrler.fetchAll();
-
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
+    adminCntrler.fetchAll();
+
     // print("Fetched ${adminCntrler.allData.length} products");
     return Scaffold(
       body: GridView.builder(

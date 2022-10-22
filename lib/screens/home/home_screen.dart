@@ -237,353 +237,256 @@ class _HomeScreenState extends State<HomeScreen> {
     int btmSelectedIndex = 0;
     //List screens = [Home(), Categories(), Cart(), UserScreen()];
     return Scaffold(
-        drawer: DrawerSide(
-          userProvider: userProvider,
+      drawer: DrawerSide(
+        userProvider: userProvider,
+      ),
+      appBar: AppBar(
+        elevation: 0,
+        backgroundColor: primaryColor,
+        title: const Text(
+          "Home",
+          style: TextStyle(color: Colors.black),
         ),
-        appBar: AppBar(
-          elevation: 0,
-          backgroundColor: primaryColor,
-          title: const Text(
-            "Home",
-            style: TextStyle(color: Colors.black),
+        actions: [
+          CircleAvatar(
+            radius: 15,
+            backgroundColor: Color(0xffd6d382),
+            child: IconButton(
+              onPressed: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) =>
+                        Search(search: productProvider.getAllProductSearch),
+                  ),
+                );
+              },
+              icon: Icon(
+                Icons.search,
+                size: 17,
+                color: textColor,
+              ),
+            ),
           ),
-          actions: [
-            CircleAvatar(
-              radius: 15,
-              backgroundColor: Color(0xffd6d382),
-              child: IconButton(
-                onPressed: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          Search(search: productProvider.getAllProductSearch),
-                    ),
-                  );
-                },
-                icon: Icon(
-                  Icons.search,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5),
+            child: GestureDetector(
+              onTap: () {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => ReviewCart(),
+                  ),
+                );
+              },
+              child: CircleAvatar(
+                backgroundColor: Color(0xffd6d382),
+                radius: 15,
+                child: Icon(
+                  Icons.shop,
                   size: 17,
                   color: textColor,
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 5),
-              child: GestureDetector(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => ReviewCart(),
-                    ),
-                  );
-                },
-                child: CircleAvatar(
-                  backgroundColor: Color(0xffd6d382),
-                  radius: 15,
-                  child: Icon(
-                    Icons.shop,
-                    size: 17,
-                    color: textColor,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+        ],
+      ),
 
-        // appBar: AppBar(
-        //   backgroundColor: Colors.redAccent,
-        //   iconTheme: IconThemeData(color: textColor),
-        //   title: Text(
-        //     'Home',
-        //     style: TextStyle(color: textColor, fontSize: 17),
-        //   ),
-        //   actions: [
-        //     CircleAvatar(
-        //       radius: 15,
-        //       backgroundColor: Color(0xffd6d382),
-        //       child: IconButton(
-        //         onPressed: () {
-        //           Navigator.of(context).push(
-        //             MaterialPageRoute(
-        //               builder: (context) =>
-        //                   Search(search: productProvider.getAllProductSearch),
-        //             ),
-        //           );
-        //         },
-        //         icon: Icon(
-        //           Icons.search,
-        //           size: 17,
-        //           color: textColor,
-        //         ),
-        //       ),
-        //     ),
-        //     Padding(
-        //       padding: const EdgeInsets.symmetric(horizontal: 5),
-        //       child: GestureDetector(
-        //         onTap: () {
-        //           Navigator.of(context).push(
-        //             MaterialPageRoute(
-        //               builder: (context) => ReviewCart(),
-        //             ),
-        //           );
-        //         },
-        //         child: CircleAvatar(
-        //           backgroundColor: Color(0xffd6d382),
-        //           radius: 15,
-        //           child: Icon(
-        //             Icons.shop,
-        //             size: 17,
-        //             color: textColor,
-        //           ),
-        //         ),
-        //       ),
-        //     ),
-        //   ],
-        // ),
-        body: ListView(
+      // appBar: AppBar(
+      //   backgroundColor: Colors.redAccent,
+      //   iconTheme: IconThemeData(color: textColor),
+      //   title: Text(
+      //     'Home',
+      //     style: TextStyle(color: textColor, fontSize: 17),
+      //   ),
+      //   actions: [
+      //     CircleAvatar(
+      //       radius: 15,
+      //       backgroundColor: Color(0xffd6d382),
+      //       child: IconButton(
+      //         onPressed: () {
+      //           Navigator.of(context).push(
+      //             MaterialPageRoute(
+      //               builder: (context) =>
+      //                   Search(search: productProvider.getAllProductSearch),
+      //             ),
+      //           );
+      //         },
+      //         icon: Icon(
+      //           Icons.search,
+      //           size: 17,
+      //           color: textColor,
+      //         ),
+      //       ),
+      //     ),
+      //     Padding(
+      //       padding: const EdgeInsets.symmetric(horizontal: 5),
+      //       child: GestureDetector(
+      //         onTap: () {
+      //           Navigator.of(context).push(
+      //             MaterialPageRoute(
+      //               builder: (context) => ReviewCart(),
+      //             ),
+      //           );
+      //         },
+      //         child: CircleAvatar(
+      //           backgroundColor: Color(0xffd6d382),
+      //           radius: 15,
+      //           child: Icon(
+      //             Icons.shop,
+      //             size: 17,
+      //             color: textColor,
+      //           ),
+      //         ),
+      //       ),
+      //     ),
+      //   ],
+      // ),
+
+      // Expanded(
+      //   flex: 2,
+      //   child: Container(
+      //     child: Column(
+      //       children: [
+      //         Padding(
+      //           padding: const EdgeInsets.only(right: 130, bottom: 10),
+      //           child: Container(
+      //             height: 50,
+      //             width: 100,
+      //             decoration: BoxDecoration(
+      //               color: primaryColor,
+      //               borderRadius: BorderRadius.only(
+      //                 bottomRight: Radius.circular(50),
+      //                 bottomLeft: Radius.circular(50),
+      //               ),
+      //             ),
+      //             child: Center(
+      //               child: Text(
+      //                 'Vegi',
+      //                 style: TextStyle(
+      //                   fontSize: 20,
+      //                   color: Colors.white,
+      //                   shadows: [
+      //                     BoxShadow(
+      //                         color: Colors.grey,
+      //                         blurRadius: 10,
+      //                         offset: Offset(3, 3))
+      //                   ],
+      //                 ),
+      //               ),
+      //             ),
+      //           ),
+      //         ),
+      //         Text(
+      //           '30% Off',
+      //           style: TextStyle(
+      //               fontSize: 40,
+      //               color: Colors.yellow,
+      //               fontWeight: FontWeight.bold),
+      //         ),
+      //         Padding(
+      //           padding: const EdgeInsets.only(left: 20),
+      //           child: Text(
+      //             'On all vegetables products',
+      //             style: TextStyle(
+      //               color: Colors.white,
+      //             ),
+      //           ),
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
+      //     Expanded(
+      //       child: Container(),
+      //     ),
+      //     _buildHerbsProduct(context),
+      //     _buildFreshProduct(context),
+      //     _buildRootProduct(),
+      //   ],
+      // ));
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+        child: ListView(
           children: [
-            CarouselSlider(
-              items: [
-                //1st Image of Slider
-                Container(
-                  margin: EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: DecorationImage(
-                      image: AssetImage("assets/dd.jpg"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+            Container(
+              height: 220,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage('assets/white.jpg'),
                 ),
-
-                //2nd Image of Slider
-                Container(
-                  margin: EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: DecorationImage(
-                      image: AssetImage("assets/grey.jpg"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-
-                //3rd Image of Slider
-                Container(
-                  margin: EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: DecorationImage(
-                      image: AssetImage("assets/white.jpg"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-
-                //4th Image of Slider
-                Container(
-                  margin: EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: DecorationImage(
-                      image: AssetImage("assets/black.jpg"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-
-                //5th Image of Slider
-                Container(
-                  margin: EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: DecorationImage(
-                      image: AssetImage("assets/groc.jpg"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-
-                Container(
-                  margin: EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: DecorationImage(
-                      image: AssetImage("assets/zed.jpg"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-
-                Container(
-                  margin: EdgeInsets.all(6.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    image: DecorationImage(
-                      image: AssetImage("assets/yellow.jpg"),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                ),
-              ],
-
-              //Slider Container properties
-              options: CarouselOptions(
-                height: 180.0,
-                enlargeCenterPage: true,
-                autoPlay: true,
-                aspectRatio: 16 / 9,
-                autoPlayCurve: Curves.fastOutSlowIn,
-                enableInfiniteScroll: true,
-                autoPlayAnimationDuration: Duration(milliseconds: 800),
-                viewportFraction: 0.8,
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(10),
               ),
-            ),
-            // Expanded(
-            //   flex: 2,
-            //   child: Container(
-            //     child: Column(
-            //       children: [
-            //         Padding(
-            //           padding: const EdgeInsets.only(right: 130, bottom: 10),
-            //           child: Container(
-            //             height: 50,
-            //             width: 100,
-            //             decoration: BoxDecoration(
-            //               color: primaryColor,
-            //               borderRadius: BorderRadius.only(
-            //                 bottomRight: Radius.circular(50),
-            //                 bottomLeft: Radius.circular(50),
-            //               ),
-            //             ),
-            //             child: Center(
-            //               child: Text(
-            //                 'Vegi',
-            //                 style: TextStyle(
-            //                   fontSize: 20,
-            //                   color: Colors.white,
-            //                   shadows: [
-            //                     BoxShadow(
-            //                         color: Colors.grey,
-            //                         blurRadius: 10,
-            //                         offset: Offset(3, 3))
-            //                   ],
-            //                 ),
-            //               ),
-            //             ),
-            //           ),
-            //         ),
-            //         Text(
-            //           '30% Off',
-            //           style: TextStyle(
-            //               fontSize: 40,
-            //               color: Colors.yellow,
-            //               fontWeight: FontWeight.bold),
-            //         ),
-            //         Padding(
-            //           padding: const EdgeInsets.only(left: 20),
-            //           child: Text(
-            //             'On all vegetables products',
-            //             style: TextStyle(
-            //               color: Colors.white,
-            //             ),
-            //           ),
-            //         ),
-            //       ],
-            //     ),
-            //   ),
-            // ),
-            Expanded(
-              child: Container(),
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 2,
+                    child: Container(
+                      child: Column(
+                        children: [
+                          Padding(
+                            padding:
+                                const EdgeInsets.only(right: 130, bottom: 10),
+                            child: Container(
+                              height: 50,
+                              width: 100,
+                              decoration: BoxDecoration(
+                                color: primaryColor,
+                                borderRadius: BorderRadius.only(
+                                  bottomRight: Radius.circular(50),
+                                  bottomLeft: Radius.circular(50),
+                                ),
+                              ),
+                              child: Center(
+                                child: Text(
+                                  'Vegi',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    color: Colors.white,
+                                    shadows: [
+                                      BoxShadow(
+                                          color: Colors.grey,
+                                          blurRadius: 10,
+                                          offset: Offset(3, 3))
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Text(
+                            '30% Off',
+                            style: TextStyle(
+                                fontSize: 40,
+                                color: Colors.yellow,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 20),
+                            child: Text(
+                              'On all vegetables products',
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Container(),
+                  ),
+                ],
+              ),
             ),
             _buildHerbsProduct(context),
             _buildFreshProduct(context),
             _buildRootProduct(),
           ],
-        ));
-    // body: Padding(
-    //   padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-    //   child: ListView(
-    //     children: [
-    //       Container(
-    //         height: 200,
-    //         decoration: BoxDecoration(
-    //           image: DecorationImage(
-    //             fit: BoxFit.cover,
-    //             image: AssetImage('assets/white.jpg'),
-    //           ),
-    //           color: Colors.white,
-    //           borderRadius: BorderRadius.circular(10),
-    //         ),
-    //         child: Row(
-    //           children: [
-    //             Expanded(
-    //               flex: 2,
-    //               child: Container(
-    //                 child: Column(
-    //                   children: [
-    //                     Padding(
-    //                       padding:
-    //                           const EdgeInsets.only(right: 130, bottom: 10),
-    //                       child: Container(
-    //                         height: 50,
-    //                         width: 100,
-    //                         decoration: BoxDecoration(
-    //                           color: primaryColor,
-    //                           borderRadius: BorderRadius.only(
-    //                             bottomRight: Radius.circular(50),
-    //                             bottomLeft: Radius.circular(50),
-    //                           ),
-    //                         ),
-    //                         child: Center(
-    //                           child: Text(
-    //                             'Vegi',
-    //                             style: TextStyle(
-    //                               fontSize: 20,
-    //                               color: Colors.white,
-    //                               shadows: [
-    //                                 BoxShadow(
-    //                                     color: Colors.grey,
-    //                                     blurRadius: 10,
-    //                                     offset: Offset(3, 3))
-    //                               ],
-    //                             ),
-    //                           ),
-    //                         ),
-    //                       ),
-    //                     ),
-    //                     Text(
-    //                       '30% Off',
-    //                       style: TextStyle(
-    //                           fontSize: 40,
-    //                           color: Colors.yellow,
-    //                           fontWeight: FontWeight.bold),
-    //                     ),
-    //                     Padding(
-    //                       padding: const EdgeInsets.only(left: 20),
-    //                       child: Text(
-    //                         'On all vegetables products',
-    //                         style: TextStyle(
-    //                           color: Colors.white,
-    //                         ),
-    //                       ),
-    //                     ),
-    //                   ],
-    //                 ),
-    //               ),
-    //             ),
-    //             Expanded(
-    //               child: Container(),
-    //             ),
-    //           ],
-    //         ),
-    //       ),
-    // _buildHerbsProduct(context),
-    // _buildFreshProduct(context),
-    // _buildRootProduct(),
-    //],
-    // ),
-    // ),
+        ),
+      ),
+    );
   }
 }

@@ -77,7 +77,6 @@ class _SearchState extends State<Search> {
           Column(
             children: _searchItem.map((data) {
               return SingleItem(
-//<<<<<<< Updated upstream
                 isBool: false,
                 productImage: data.productImage,
                 productName: data.productName,
@@ -88,17 +87,6 @@ class _SearchState extends State<Search> {
                 // productUnit: data.productUnit,
                 wishList: false, providerState: reviewCartProvider,
               );
-// =======
-//                   isBool: false,
-//                   productImage: data.productImage,
-//                   productName: data.productName,
-//                   productPrice: data.productPrice,
-//                   onDelete: () {},
-//                   productId: data.productId,
-//                   productQuantity: data.productQuantity,
-//                   // productUnit: data.productUnit,
-//                   wishList: false);
-// >>>>>>> Stashed changes
             }).toList(),
           )
         ],
